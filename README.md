@@ -45,3 +45,15 @@ Live Public Site: [https://hero699.github.io/creative-writing-benchmark-v3/](htt
 - Fast Smooth-Scrolling Navigation Engine across all section pills, banner links, and quirk footnotes.
 - System Instruction Harness Viewer & Markdown Exporters (instant table copying and harness downloads).
 - Responsive Theme Design built in vanilla HTML5, CSS3, and modern JS.
+
+---
+
+## Feedback, Model Requests & Suggestions
+
+Any advice is welcome! I would love to hear feedback and ideas on:
+- What you want to see improved in the benchmark methodology, scoring, or narrative test scenarios.
+- Which upcoming or existing models you would like to see tested next.
+- Any bugs, rendering issues, or visual inconsistencies you encounter on the website.
+- Any tips or feature recommendations to improve the website presentation, interactivity, or tooling.
+
+Feel free to open an issue or submit feedback directly via the [GitHub Issues](https://github.com/Hero699/creative-writing-benchmark-v3/issues) tab.
