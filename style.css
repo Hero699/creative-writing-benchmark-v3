@@ -216,6 +216,49 @@ h1, h2, h3, h4, h5, h6 {
     gap: 3.5rem;
 }
 
+/* Important Notice Callout Banner */
+.important-notice-banner {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding: 1.1rem 1.6rem;
+    background: linear-gradient(90deg, rgba(255, 46, 147, 0.14), rgba(168, 85, 247, 0.08));
+    border: 1px solid rgba(255, 46, 147, 0.4);
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 46, 147, 0.15);
+}
+
+.notice-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.35rem 0.8rem;
+    border-radius: 20px;
+    background: var(--primary-pink);
+    color: #ffffff;
+    white-space: nowrap;
+    box-shadow: 0 0 12px rgba(255, 46, 147, 0.5);
+    flex-shrink: 0;
+}
+
+.notice-text {
+    font-size: 0.96rem;
+    color: #ffd6ea;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .important-notice-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 1rem 1.25rem;
+    }
+}
+
 /* Section Header Titles */
 .section-title-wrapper {
     display: flex;
