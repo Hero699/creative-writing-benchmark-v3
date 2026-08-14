@@ -1,12 +1,12 @@
 # LLM Creative Writing Benchmark V3
 
-Comprehensive creative writing evaluation across 14 frontier and open-weights LLMs tested on 600 rigorous narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
+Comprehensive creative writing evaluation across 14 frontier and open-weights LLMs tested on 600 narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
 
-🔗 **Live Public Site**: [https://hero699.github.io/creative-writing-benchmark-v3/](https://hero699.github.io/creative-writing-benchmark-v3/)
+Live Public Site: [https://hero699.github.io/creative-writing-benchmark-v3/](https://hero699.github.io/creative-writing-benchmark-v3/)
 
 ---
 
-## 📊 Core Evaluated Dimensions
+## Core Evaluated Dimensions
 
 1. **Logic & Coherence** (Uncapped, 50 Sol Max baseline):
    - Long-horizon causal chains, deductive problem solving, narrative logic, world-state persistence, and mystery deduction without contradictions.
@@ -17,7 +17,7 @@ Comprehensive creative writing evaluation across 14 frontier and open-weights LL
 
 ---
 
-## 🏆 Current Rankings & Baselines
+## Current Rankings & Baselines
 
 | Rank | Model Name | Logic | Prose | Flexibility | Context Window | Evaluator Notes |
 |:---:|:---|:---:|:---:|:---:|:---:|:---|
@@ -38,10 +38,10 @@ Comprehensive creative writing evaluation across 14 frontier and open-weights LL
 
 ---
 
-## 🛠️ Features Included in Web Interface
+## Features Included in Web Interface
 
-- **Artificial Analysis-Style Column Bar Charts** with Sol baseline multipliers.
-- **Interactive Head-to-Head Comparison Tool** with slot-machine randomized match generator and direct evaluator takeaways.
-- **Fast Smooth-Scrolling Navigation Engine** across all section pills, banner links, and quirk footnotes.
-- **System Instruction Harness Viewer & Markdown Exporters** (instant table copying and harness downloads).
-- **Responsive Theme Design** built in vanilla HTML5, CSS3, and modern JS.
+- Artificial Analysis-Style Column Bar Charts with Sol baseline multipliers.
+- Interactive Head-to-Head Comparison Tool with slot-machine randomized match generator and direct evaluator takeaways.
+- Fast Smooth-Scrolling Navigation Engine across all section pills, banner links, and quirk footnotes.
+- System Instruction Harness Viewer & Markdown Exporters (instant table copying and harness downloads).
+- Responsive Theme Design built in vanilla HTML5, CSS3, and modern JS.
