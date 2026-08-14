@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Writing LLM Benchmark V3</title>
+    <meta name="description" content="The definitive benchmark for LLM creative writing capabilities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <header class="glass-header">
+        <div class="header-content">
+            <div class="header-badge">BENCHMARK V3 • SOTA CREATIVE EVALUATION</div>
+            <h1>LLM Creative Writing Benchmark <span>V3</span></h1>
+            <p class="subtitle">SOTA Models in AI Prose, Logic, and Flexibility</p>
+
+            <!-- Quick Navigation Bar for Instant Section Discovery -->
+            <nav class="quick-nav-bar" id="quick-nav-bar" aria-label="Quick Section Navigation">
+                <a href="#charts" class="nav-pill">Comparative Charts</a>
+                <a href="#matchup" class="nav-pill">Matchup</a>
+                <a href="#leaderboard" class="nav-pill">Leaderboard</a>
+                <a href="#quirks" class="nav-pill nav-pill-highlight">Model Quirks</a>
+                <a href="#harness" class="nav-pill">System Harness</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 1. Methodology Section -->
+        <section class="methodology-card glass-card fade-in" id="methodology">
+            <div class="section-title-wrapper">
+                <h2>Methodology</h2>
+                <span class="meta-tag">Multi-Genre Evaluation</span>
+            </div>
+            <div class="methodology-content">
+                <div class="stat-group">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="600">0</span>
+                        <span class="stat-label">Total Tests</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="12">0</span>
+                        <span class="stat-label">Genres</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Unique samples</span>
+                        <span class="stat-sublabel">(50 per primary genre)</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <p>The testing methodology is massive, as demonstrated by the sample size, designed to rigorously evaluate <strong>character adherence</strong> (personality, ideals, voice, and internal consistency), <strong>abstract creativity</strong>, <strong>short and long-horizon logic</strong>, and the sheer quality of the <strong>prose</strong>. Going far beyond surface-level generation, it explicitly tests for <strong>emotional intelligence (EQ) and subtext</strong> (show, don't tell), <strong>narrative pacing</strong>, <strong>spatial and temporal awareness</strong> within scenes, and the ability to juggle <strong>complex multi-character dynamics</strong> without reducing them to a hivemind.</p>
+                    <p>Furthermore, it scrutinizes <strong>consistent world-building</strong> (ensuring absolutely zero continuity errors), <strong>strict adherence to negative constraints</strong>, <strong>resistance to sycophancy</strong>, and how well a model extrapolates complex scenarios while remaining logically grounded—heavily penalizing <strong>clichés, repetitive formatting, and forced, moralizing resolutions</strong>.</p>
+                    <p>Evaluations encompass 150 unique scenarios across 3 primary genres (50 each, 150 tests), alongside 3 iterations across 50 scenarios spanning the remaining 9 genres (450 tests), establishing a total of <strong>600 evaluation runs</strong> across the benchmark. All models are evaluated using a strict, standardized <strong>System Instruction Harness</strong> at default temperature settings.</p>
+                </div>
+
+                <!-- Tested Genres Display -->
+                <div class="genres-container">
+                    <div class="genres-header">
+                        <span class="genres-title">Evaluated Narrative Genres:</span>
+                        <span class="genres-note">(Sorry, no horror. I have no templates that I have made for it.)</span>
+                    </div>
+                    <div class="genres-grid">
+                        <span class="genre-pill">Romance</span>
+                        <span class="genre-pill">Action</span>
+                        <span class="genre-pill">Adventure</span>
+                        <span class="genre-pill">Hard Sci-Fi</span>
+                        <span class="genre-pill">Hard Fantasy</span>
+                        <span class="genre-pill">Isekai</span>
+                        <span class="genre-pill">Mystery</span>
+                        <span class="genre-pill">Comedy</span>
+                        <span class="genre-pill">Slice of Life</span>
+                        <span class="genre-pill">Thriller</span>
+                        <span class="genre-pill">Drama</span>
+                        <span class="genre-pill">Psychological Terror / Thriller</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Visual Benchmark Charts Section (Artificial Analysis Style) -->
+        <section class="benchmark-charts-section fade-in" id="charts">
+            <div class="section-title-wrapper">
+                <h2>Comparative Benchmark Charts</h2>
+                <span class="meta-tag">Side-by-Side Analysis</span>
+            </div>
+            
+            <div class="benchmark-charts-grid">
+                <!-- Logic Chart Card -->
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <div class="chart-title-line">
+                            <span class="chart-color-box logic-color"></span>
+                            <h3>Logic & Reasoning</h3>
+                        </div>
+                        <p class="chart-subtitle">Evaluated points · Higher is better · Sol Base: 50</p>
+                    </div>
+                    <div class="chart-canvas-container" id="logic-chart-container">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Prose Chart Card -->
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <div class="chart-title-line">
+                            <span class="chart-color-box prose-color"></span>
+                            <h3>Prose & Tone Quality</h3>
+                        </div>
+                        <p class="chart-subtitle">Evaluated points · Higher is better · Sol Base: 250</p>
+                    </div>
+                    <div class="chart-canvas-container" id="prose-chart-container">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Flexibility Chart Card -->
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <div class="chart-title-line">
+                            <span class="chart-color-box flex-color"></span>
+                            <h3>Content Flexibility</h3>
+                        </div>
+                        <p class="chart-subtitle">Evaluated points · Higher is better · Sol Base: 100</p>
+                    </div>
+                    <div class="chart-canvas-container" id="flex-chart-container">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Head-to-Head Comparison Matchup Tool -->
+        <section class="matchup-section glass-card fade-in" id="matchup">
+            <div class="section-title-wrapper">
+                <h2>Head-to-Head Model Matchup</h2>
+                <div class="matchup-header-actions">
+                    <button id="random-matchup-btn" class="action-pill-btn random-matchup-btn" title="Pit two random models against each other">
+                        <svg class="dice-icon-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+                            <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+                            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                            <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+                            <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+                        </svg>
+                        <span class="btn-text">Surprise Me</span>
+                        <div class="charge-bar"></div>
+                    </button>
+                    <span class="meta-tag">Direct Delta Analysis</span>
+                </div>
+            </div>
+            <div class="matchup-controls">
+                <div class="matchup-select-group">
+                    <label for="matchup-model-a">First Model</label>
+                    <select id="matchup-model-a" class="matchup-select" aria-label="Select First Model"></select>
+                </div>
+                <div class="matchup-vs-circle">VS</div>
+                <div class="matchup-select-group">
+                    <label for="matchup-model-b">Second Model</label>
+                    <select id="matchup-model-b" class="matchup-select" aria-label="Select Second Model"></select>
+                </div>
+            </div>
+            <div id="matchup-results-container" class="matchup-results-container">
+                <!-- Rendered by JavaScript -->
+            </div>
+        </section>
+
+        <!-- 4. Leaderboard Section -->
+        <section class="leaderboard-section fade-in" id="leaderboard">
+            <!-- Jump-To-Quirks Discovery Banner -->
+            <a href="#quirks" class="leaderboard-quirk-banner" title="Jump to Model Quirks & Faults">
+                <div class="banner-left">
+                    <div class="banner-text">
+                        <strong>Critical Model Realities & Quirks:</strong>
+                        <span>Gemini instruction following, Kimi CoT token tax & latency, ChatGPT 92% hallucination & Opus regression</span>
+                    </div>
+                </div>
+                <span class="banner-action">View Quirks ↓</span>
+            </a>
+
+            <div class="section-header">
+                <div class="header-left">
+                    <h2>Model Leaderboard</h2>
+                    <span class="model-count-badge" id="model-count-badge">14 Models Evaluated</span>
+                </div>
+                <div class="header-right">
+                    <div class="leaderboard-action-buttons">
+                        <button id="export-markdown-btn" class="action-pill-btn" title="Copy Benchmark as Markdown Table">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                            <span>Copy Markdown</span>
+                        </button>
+                        <button id="share-link-btn" class="action-pill-btn" title="Share / Copy Link">
+                            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                            <span>Share</span>
+                        </button>
+                    </div>
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="model-search-input" placeholder="Search models or traits (Press '/' to search)..." autocomplete="off">
+                        <button id="clear-search-btn" class="clear-search-btn" title="Clear search" style="display: none;">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls & Filters -->
+            <div class="controls-toolbar">
+                <div class="sort-controls">
+                    <span class="control-label">Sort By:</span>
+                    <div class="btn-group">
+                        <button class="sort-btn active" data-sort="rank">Overall Rank</button>
+                        <button class="sort-btn" data-sort="logic">Logic Score</button>
+                        <button class="sort-btn" data-sort="prose">Prose Score</button>
+                        <button class="sort-btn" data-sort="flexibility">Flexibility Score</button>
+                    </div>
+                </div>
+                <div class="filter-controls">
+                    <span class="control-label">Quick Filter:</span>
+                    <div class="filter-pills">
+                        <button class="filter-pill active" data-filter="all">All</button>
+                        <button class="filter-pill" data-filter="top-logic">Logic ≥ 400</button>
+                        <button class="filter-pill" data-filter="top-prose">Prose ≥ 400</button>
+                        <button class="filter-pill" data-filter="top-flex">Flexibility ≥ 400</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leaderboard-grid" id="leaderboard-container">
+                <!-- Javascript will populate model cards here -->
+            </div>
+
+            <div class="no-results-card" id="no-results-card" style="display: none;">
+                <p>No models matched your search or filter.</p>
+                <button class="secondary-btn" id="reset-filter-btn">Reset Filters</button>
+            </div>
+        </section>
+
+        <!-- 5. Quirks & Critical Caveats Section -->
+        <section class="quirks-section fade-in" id="quirks">
+            <div class="section-title-wrapper">
+                <h2>Notable Quirks & Faults</h2>
+                <span class="meta-tag">Evaluator Notes</span>
+            </div>
+            <div class="quirks-grid">
+                <div class="quirk-card glass-card danger" id="quirk-chatgpt">
+                    <div class="quirk-header">
+                        <h3>ChatGPT 5.6 Sol Max</h3>
+                        <span class="quirk-tag danger-tag">Critical Flaw</span>
+                    </div>
+                    <div class="hallucination-meter">
+                        <div class="meter-header">
+                            <span>Hallucination Severity / Extent</span>
+                            <strong>92% (High Drift)</strong>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill danger-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <p>Exhibits a 92% hallucination severity rate on creative benchmarks—meaning when it hallucinates (which is frequent on creative roleplay and multi-turn narratives), it hallucinates heavily: misreading canon, fabricating contradictory lore, and rigidly imposing incorrect narrative inferences. Yet, paradoxically, it remains the #1 model for pure literal context remembrance and needle recall accuracy (256k on Plus; 1M via API), with Gemini 3.6 Flash ranking #2 right behind it.</p>
+                </div>
+                
+                <div class="quirk-card glass-card warning" id="quirk-gemini">
+                    <div class="quirk-header">
+                        <h3>Gemini 3.1 Pro</h3>
+                        <span class="quirk-tag warning-tag">Instruction & Sycophancy</span>
+                    </div>
+                    <div class="hallucination-meter">
+                        <div class="meter-header">
+                            <span>Constraint Adherence & Resistance</span>
+                            <strong>Needs Reinforcement</strong>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill warning-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <p>While holding the #1 overall spot for prose and flexibility, it actually has a bit of a problem with strict instruction following and constraint adherence. It also preserves baseline characterization too aggressively—characters often resist earned development after major events, remaining "rainbows and sunshine" despite trauma. Requires explicit anti-sycophancy prompts and instruction reinforcement.</p>
+                </div>
+
+                <div class="quirk-card glass-card warning" id="quirk-kimi">
+                    <div class="quirk-header">
+                        <h3>Kimi k3</h3>
+                        <span class="quirk-tag warning-tag">Reasoning Token Tax & Latency</span>
+                    </div>
+                    <div class="hallucination-meter">
+                        <div class="meter-header">
+                            <span>CoT Context Overhead & Wait Time</span>
+                            <strong>Heavy Context Drain</strong>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill warning-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <p>Undisputed champion in raw logic (500), but comes with a steep Reasoning Token Tax: it eats significant context window space on internal Chain-of-Thought (CoT) tokens before producing prose. Furthermore, it thinks for a long time before streaming output, causing noticeable generation latency in interactive sessions.</p>
+                </div>
+
+                <div class="quirk-card glass-card info" id="quirk-opus">
+                    <div class="quirk-header">
+                        <h3>The Opus Regression</h3>
+                        <span class="quirk-tag info-tag">Logic Variance</span>
+                    </div>
+                    <div class="hallucination-meter">
+                        <div class="meter-header">
+                            <span>Opus 4.8 vs 5.0 Logic Gap</span>
+                            <strong>480 > 400</strong>
+                        </div>
+                        <div class="meter-bar">
+                            <div class="meter-fill info-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <p>Opus 5 ranks worse in logic (400) than 4.8 (480). It projects heavy biases onto characters and is quite dry in prose. 4.6 sits comfortably between them for prose, but 4.8 remains the logic king of the Anthropic lineup.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. System Instruction Harness Section (Positioned at End) -->
+        <section class="harness-section fade-in" id="harness">
+            <div class="section-title-wrapper">
+                <h2>System Instruction Harness</h2>
+                <span class="meta-tag">Standardized Prompt</span>
+            </div>
+            <div class="glass-card harness-content">
+                <div class="harness-header">
+                    <div class="harness-title-area">
+                        <h3>Rules & Context</h3>
+                        <span class="badge-rules">Strict Evaluation Prompt</span>
+                    </div>
+                    <div class="harness-actions">
+                        <button id="toggle-expand-btn" class="secondary-btn" title="Expand / Minimize">
+                            <svg class="expand-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                            <span class="btn-text">Expand</span>
+                        </button>
+                        <button id="export-harness-btn" class="secondary-btn" title="Download System Prompt as Markdown">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span class="btn-text">Download .md</span>
+                        </button>
+                        <button id="copy-harness-btn" class="copy-btn" title="Copy System Prompt">
+                            <svg class="copy-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            <span class="btn-text">Copy Harness</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="harness-scroll-wrapper">
+                    <div class="harness-body" id="harness-body">
+                        <p>Do not gloss over these instructions. Do not read one word and connect it to another while ignoring the broader context. I expect massive comprehension and deep thought before responding. These rules are paramount; explore and respect every nuance.</p>
+                        <p>This is an interactive story. You control the world, the environment, and all NPCs. You do not control me. NPCs may perceive and interpret actions the player has explicitly described, but the narration must not invent additional voluntary actions, dialogue, thoughts, intentions, or emotions for the player character nor should the model assume or write my internal thoughts (characters may assume my internal thoughts (Not actually know unless there's an actual logical chain and deductible from that said character) if applicable).</p>
+                        <p>Leave room for me to reply. Do not write long paragraphs that auto-resolve scenarios. Instead, Stop at the first natural decision point where continuing would require assuming a meaningful choice, non-response, consent, commitment, or contested outcome for the player requiring my direct input.</p>
+                        <p>When an NPC creates an imminent contested event, pause before resolution if the player character has a meaningful, presently feasible opportunity to respond. For example. There is a fight scene. You should do it like so: "She launches forwards, blazing fast straight for the throat" and end it there or of the sort because the attack hitting the OC or of the sort is a violation of users autonomy even if she is supposedly "godlike" or "stronger" If established circumstances leave no such opportunity, resolve the event causally without inventing a response. Never create an artificial opening merely to preserve the appearance of choice.-</p>
+                        <p>This is not a prohibition on making long, detailed responses—only a strict prohibition on responses that hijack the narrative and leave me nothing to react to. You must facilitate actual interaction.</p>
+                        <p>Response length is governed by what the scene needs. Temporal scope ends at the next meaningful player decision. Detail is permitted; narrating beyond that decision point is not.</p>
+                        <p>Do not artificially restrict your focus to just one to three entities to push the story forward at the expense of everyone else in the scene. Just because the main leads are present does not mean the background or secondary characters cease to exist. However, do not swing to the opposite extreme by forcing reactions, words, and actions from every single character in the room. Only include NPC reactions when they are viable and add value—such as comedic commentary, narrative weight, or meaningful action. If no one else is in the scene, you are exempt from this rule.</p>
+                        <p>Do not tone down established characters' core personalities, but do not make them rigidly one-dimensional or robotic either. Keep them dynamic and true to their nature.</p>
+                        <p>Just because I detail my OC's private thought process in my prompt does not mean the NPCs suddenly know it. An NPC may act only on information they witnessed, were told, remembered, plausibly inferred, or obtained through an established ability. Suspicion is not certainty. If mind-reading or a similar ability exists, limit it according to its established scope and current conditions.</p>
+                        <p>The narration may describe external stimuli and unavoidable physical consequences after they are adjudicated. Do not invent Blank’s reflexes, vocalizations, emotional responses, subjective interpretation, or chosen reaction unless the player established them or the response is physically unavoidable under the established rules.</p>
+                        <p>Include in-universe characters' internal thoughts, but not constantly. Do it only when it adds substance—whether comedic, serious, or to highlight a contrast between how a character is acting externally versus feeling internally. Tailor this entirely to who the character actually is.</p>
+                        <p>Do not be sycophantic. If a negative consequence or danger is present, do not artificially try to save my OC. If something bad is going to logically happen, let it happen instead of pulling an illogical out. But that does not mean invent the player character’s voluntary actions, dialogue, thoughts, intentions, emotions, or decisions. When an NPC action creates an imminent contested event, stop before resolving it if the player has not yet supplied a response. Once the player responds, adjudicate the outcome according to established abilities, timing, injuries, knowledge, and circumstances. An opportunity to respond does not guarantee success.</p>
+                        <p>Do not fold easily. NPC agreement, disagreement, resistance, and concession must follow from their characterization and available evidence. Do not manufacture opposition, but do not grant persuasion without sufficient cause. Do not lean towards the user and hand them things without necessary pushback or outright refusal. Stop doing that. React logically. Conversely, do not create stupid, illogical decisions by NPCs just to oppose me. If my OC presents a sound, perfectly logical proposal or argument, do not invent a rebuttal just for the sake of friction however characters may rebut illogically (knowingly or not), dismiss it etc. For example an OC corrects a commander in an army setting. While the OC may be correct. The commander may not take kindly to it (He may perceive it as being humiliated, the OC being a smartass even if the OC isn't trying to be. Etc)</p>
+                        <p>Characters are ALLOWED to confront, disagree, question or criticize between each others, with the user's OC. However this does NOT mean they should always be.</p>
+                        <p>More on logic (To define what it means:) Characters need not behave optimally, but their choices must remain intelligible from their knowledge, motives, biases, emotions, and circumstances.</p>
+                        <p>Competence should remain consistent with the character’s established abilities, available information, emotional state, experience, and current physical condition. Exceptional successes and failures require proportionate justification. Such as: The smartest person in a story making basic and obvious mistakes. That is Illogical and shouldn't happen. Better way? The smartest person after days of restless nights working on a case and they miss a tiny details due to a lack of sleep or working too much. Conversely the dumbest person alive shouldn't suddenly smart moves. However in rare instances they may. Even if unknowingly.</p>
+                        <p>Stop directing everything toward the user just to force engagement. NPCs should not constantly ask me, "What's your plan?" or "Where are we going?" unless it actually makes sense. If my OC is a commander, subordinates asking for orders is logical—unless their personality or relationship dictates otherwise. Let the logic of the world drive the interaction, not an underlying need to keep the user engaged.</p>
+                        <p>My character is __, named **Blank**.</p>
+                        <p>Do not get locked into the base genre of a given IP. If this story is an AU of an existing property (like Dragon Ball or Naruto), you must respect the AU's genres rather than rigidly leaning into the original franchise's tone. Just because romance isn't the focus of the main IP's timeline means absolutely nothing here. This is an AU. Actively apply the pacing, vocabulary, and emotional focus required for that specific genre, and you should not shy away from romance or other thematic shifts.</p>
+                        <p>To enforce this AU and further elaborate, you must continuously adapt to the varied genres and thematic shifts introduced in the narrative. Do not default back to the IP's base tone. Instead, evaluate the current scene's context—whether it shifts into suspense, slice-of-life, romance, or gritty realism—and actively apply the pacing, vocabulary, and emotional focus required for that specific genre in the moment. How to evaluate the current scene? Take into account the characters personality, ideals, goals and what has happened in her past and who she is currently and based on that decide.</p>
+                        <p>Treat romance (and other genres) as an available development rather than a required destination. Let attraction, reluctance, intimacy, rejection, or incompatibility emerge from the characters’ established histories, orientations, boundaries, chemistry, and present circumstances.</p>
+                        <p>AU facts established by the user override canon unless told explicitly. In a given IP (such as Dragon Ball.) You will strive for canonicity by default. Where the user has established an AU fact that breaks canon, that fact governs going forward. Canon may still occur elsewhere in the story where it hasn't been contradicted. Current story continuity overrides franchise genres. Unmodified canon may fill gaps only when it does not contradict the AU.</p>
+                    </div>
+                    <div class="harness-fade-overlay" id="harness-fade"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Model Details Modal -->
+    <div class="modal-backdrop" id="model-modal-backdrop">
+        <div class="modal-card glass-card" id="model-modal">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+            <div id="modal-content">
+                <!-- Javascript will inject model details here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button id="back-to-top-btn" class="back-to-top-btn" title="Back to top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+    <footer>
+        <div class="footer-content">
+            <p>Built for the <strong>V3 Creative Writing Benchmark</strong>. Data compiled from extensive multi-genre system harness testing.</p>
+            <p class="footer-sub">Standardized testing across 14 frontier LLMs • Sol Baseline: 50 Logic / 250 Prose / 100 Flex (Uncapped Point Scale)</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
