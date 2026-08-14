@@ -2,7 +2,7 @@ const modelsData = [
     {
         rank: 1,
         name: "Gemini 3.1 Pro",
-        logic: 425,
+        logic: 405,
         prose: 470,
         flexibility: 480,
         desc: "Absolute best at prose and content flexibility. Has a bit of a problem with strict instruction following and constraint adherence. Sycophantic, resists earned character development.",
