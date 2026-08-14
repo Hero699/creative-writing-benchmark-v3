@@ -27,16 +27,9 @@
 }
 
 html {
-    font-size: 80%;
     scroll-behavior: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 46, 147, 0.4) #0a0005;
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 85%;
-    }
 }
 
 section[id], .quirk-card[id], .glass-card[id] {
@@ -66,6 +59,7 @@ section[id], .quirk-card[id], .glass-card[id] {
 }
 
 body {
+    zoom: 0.8;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-main);
@@ -73,6 +67,12 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    body {
+        zoom: 1;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -205,13 +205,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Container - Centered Optimal Width */
 .container {
-    max-width: 1400px;
+    max-width: 1240px;
     width: 100%;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem;
+    padding: 3rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
 }
 
 /* Section Header Titles */
