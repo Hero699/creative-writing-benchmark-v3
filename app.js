@@ -211,8 +211,24 @@ let isMatchupRolling = false;
 // Helper to get Icon/Logo HTML
 function getModelLogoHTML(modelName, sizeClass = "brand-logo-img") {
     const cfg = modelBrandConfig[modelName] || { icon: "•", color: "#ff2e93", gradient: "var(--accent-gradient)" };
+    
+    if (cfg.brand === "Google Gemini") {
+        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;"><path d="M12 2C12 7.52 7.52 12 2 12C7.52 12 12 16.48 12 22C12 16.48 16.48 12 22 12C16.48 12 12 7.52 12 2Z" fill="url(#gemini-grad)"/><defs><linearGradient id="gemini-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#4E82EE"/><stop offset="0.5" stop-color="#9B72CB"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs></svg>`;
+    }
+    if (cfg.brand === "OpenAI ChatGPT") {
+        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none" stroke="#10a37f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9M12 3a9 9 0 0 0-9 9M3 12a9 9 0 0 0 9 9M21 12a9 9 0 0 1-9 9M8 12h8M12 8v8"/></svg>`;
+    }
+    if (cfg.brand === "DeepSeek") {
+        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none"><path d="M4 14C4 8.48 8.48 4 14 4H18C19.1 4 20 4.9 20 6V10C20 15.52 15.52 20 10 20H6C4.9 20 4 19.1 4 18V14Z" fill="#3b82f6"/><circle cx="14" cy="10" r="2.5" fill="#ffffff"/></svg>`;
+    }
+    if (cfg.brand === "Meta") {
+        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M16.5 7.5C14.5 7.5 13 9 12 10.5C11 9 9.5 7.5 7.5 7.5C4.5 7.5 2.5 10 2.5 12.5C2.5 15.5 5 17.5 7.5 17.5C9.5 17.5 11 16 12 14.5C13 16 14.5 17.5 16.5 17.5C19 17.5 21.5 15.5 21.5 12.5C21.5 10 19.5 7.5 16.5 7.5Z"/></svg>`;
+    }
+    if (cfg.brand === "Alibaba Qwen") {
+        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none"><path d="M12 2L15 8.5L22 10L17 15L18.5 22L12 18.5L5.5 22L7 15L2 10L9 8.5L12 2Z" fill="#6366f1"/></svg>`;
+    }
     if (cfg.logoImg) {
-        return `<img src="${cfg.logoImg}" alt="${cfg.brand}" class="${sizeClass}">`;
+        return `<img src="${cfg.logoImg}" alt="${cfg.brand}" class="${sizeClass}" onerror="this.outerHTML='<span class=\\'brand-logo-letter\\'>${cfg.icon}</span>'">`;
     }
     return `<span class="brand-logo-letter">${cfg.icon}</span>`;
 }
