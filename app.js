@@ -1,3 +1,4 @@
+// Model Evaluation Data
 const modelsData = [
     {
         rank: 1,
@@ -5,8 +6,8 @@ const modelsData = [
         logic: 405,
         prose: 470,
         flexibility: 480,
-        desc: "Absolute best at prose and content flexibility. Has a bit of a problem with strict instruction following and constraint adherence. Sycophantic, resists earned character development.",
-        context: "1M"
+        context: "1M",
+        desc: "Absolute best at prose and content flexibility. Resists earned character development, slight instruction-following drift."
     },
     {
         rank: 2,
@@ -14,8 +15,8 @@ const modelsData = [
         logic: 500,
         prose: 400,
         flexibility: 400,
-        desc: "Number one in logic, decent at prose. 1M context via API / select tiers (256k on web interface). Reasoning Token Tax: eats significant context window space on internal Chain-of-Thought (CoT) before outputting narrative text and thinks for a long time.",
-        context: "256k (1M API)"
+        context: "256k (1M API)",
+        desc: "Number one in logic, decent at prose. Heavy CoT reasoning tax."
     },
     {
         rank: 3,
@@ -23,8 +24,8 @@ const modelsData = [
         logic: 480,
         prose: 380,
         flexibility: 350,
-        desc: "Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic.",
-        context: "200k (1M API)"
+        context: "200k (1M API)",
+        desc: "Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic."
     },
     {
         rank: 4,
@@ -32,8 +33,8 @@ const modelsData = [
         logic: 460,
         prose: 400,
         flexibility: 350,
-        desc: "Not as great as 4.8 in logic, but better in prose by a small margin.",
-        context: "200k (1M API)"
+        context: "200k (1M API)",
+        desc: "Decent logic, slightly better than 4.8 in prose."
     },
     {
         rank: 5,
@@ -41,17 +42,17 @@ const modelsData = [
         logic: 320,
         prose: 420,
         flexibility: 450,
-        desc: "Very flexible. Absolutely amazing lightweight model. Better than Deepseek at prose but worse at flexibility. Makes mistakes.",
-        context: "1M"
+        context: "1M",
+        desc: "Very flexible. Amazing lightweight model."
     },
     {
         rank: 6,
-        name: "Deepseek flash v4 (not updated)",
+        name: "DeepSeek v4",
         logic: 150,
         prose: 400,
         flexibility: 480,
-        desc: "Very bad at logic. Great at flexibility, but Gemini 3 Flash beats it in prose.",
-        context: "1M"
+        context: "1M",
+        desc: "Great flexibility, lower logic consistency."
     },
     {
         rank: 7,
@@ -59,8 +60,8 @@ const modelsData = [
         logic: 400,
         prose: 300,
         flexibility: 200,
-        desc: "Better than GLM 5.2 at logic. Highly capable but very limited flexibility in prose, quite dry, projects biases.",
-        context: "200k (1M API)"
+        context: "200k (1M API)",
+        desc: "Highly capable logic, but very limited flexibility and dry prose."
     },
     {
         rank: 8,
@@ -68,8 +69,8 @@ const modelsData = [
         logic: 380,
         prose: 300,
         flexibility: 250,
-        desc: "Worse than Opus 4.6 and Opus 5 at logic. Isn't very flexible in prose.",
-        context: "200k"
+        context: "200k",
+        desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
     },
     {
         rank: 9,
@@ -77,8 +78,8 @@ const modelsData = [
         logic: 380,
         prose: 350,
         flexibility: 350,
-        desc: "Better at logic than 3 flash. Suggest over 3 if you value logic.",
-        context: "1M"
+        context: "1M",
+        desc: "Solid step up in logic from 3 Flash."
     },
     {
         rank: 10,
@@ -86,8 +87,8 @@ const modelsData = [
         logic: 300,
         prose: 320,
         flexibility: 370,
-        desc: "Second best right after ChatGPT at context remembrance and needle tracking across massive context windows. Worse at abstract creativity.",
-        context: "1M-2M"
+        context: "1M-2M",
+        desc: "Excellent long-context needle retrieval."
     },
     {
         rank: 11,
@@ -95,8 +96,8 @@ const modelsData = [
         logic: 360,
         prose: 300,
         flexibility: 330,
-        desc: "Better at logic and prose than Sonnet 4.5. Decent overall.",
-        context: "1M"
+        context: "1M",
+        desc: "Well-balanced overall baseline."
     },
     {
         rank: 12,
@@ -104,8 +105,8 @@ const modelsData = [
         logic: 350,
         prose: 320,
         flexibility: 300,
-        desc: "Better for creative writing than Sonnet 5, but prose is still not great and lacks flexibility.",
-        context: "200k (1M API)"
+        context: "200k (1M API)",
+        desc: "Good general benchmark baseline, stiffer narrative prose."
     },
     {
         rank: 13,
@@ -113,8 +114,8 @@ const modelsData = [
         logic: 200,
         prose: 350,
         flexibility: 150,
-        desc: "Better than Sonnet 4.6 at prose, but flexibility is pretty bad.",
-        context: "1M"
+        context: "1M",
+        desc: "Capable prose styling, constrained flexibility."
     },
     {
         rank: 14,
@@ -122,607 +123,615 @@ const modelsData = [
         logic: 50,
         prose: 250,
         flexibility: 100,
-        desc: "Top model for literal context remembrance and retrieval accuracy (requires API for 1M; 256k on Plus). However, exhibits a 92% hallucination severity rate on creative benchmarks—hallucinating frequently and heavily (misreading canon, inventing facts, and rigid narrative drift).",
-        context: "256k (1M API)"
+        context: "256k (1M API)",
+        desc: "Baseline retrieval champion, but high creative hallucination severity rate."
     }
 ];
 
-const modelBrandConfig = {
-    "Gemini 3.1 Pro": { brand: "Google Gemini", logoImg: "assets/gemini.png", icon: "G", color: "transparent", gradient: "linear-gradient(180deg, #ff4e50 0%, #fabc05 32%, #22c55e 65%, #3b82f6 100%)" },
-    "Kimi k3": { brand: "Moonshot Kimi", icon: "K", color: "#111114", gradient: "linear-gradient(180deg, #38383e 0%, #1c1c20 45%, #070708 100%)" },
-    "Opus 4.8": { brand: "Anthropic Claude", logoImg: "assets/claude.png", icon: "A", color: "transparent", gradient: "linear-gradient(180deg, #fb923c 0%, #ea580c 55%, #7c2d12 100%)" },
-    "Opus 4.6": { brand: "Anthropic Claude", logoImg: "assets/claude.png", icon: "A", color: "transparent", gradient: "linear-gradient(180deg, #fb923c 0%, #ea580c 55%, #7c2d12 100%)" },
-    "Gemini 3 Flash": { brand: "Google Gemini", logoImg: "assets/gemini.png", icon: "G", color: "transparent", gradient: "linear-gradient(180deg, #ff4e50 0%, #fabc05 32%, #22c55e 65%, #3b82f6 100%)" },
-    "Deepseek flash v4 (not updated)": { brand: "DeepSeek", logoImg: "assets/deepseek.png", icon: "D", color: "transparent", gradient: "linear-gradient(180deg, #3b82f6 0%, #1d4ed8 50%, #172554 100%)" },
-    "Opus 5": { brand: "Anthropic Claude", logoImg: "assets/claude.png", icon: "A", color: "transparent", gradient: "linear-gradient(180deg, #fb923c 0%, #ea580c 55%, #7c2d12 100%)" },
-    "GLM 5.2": { brand: "Zhipu AI GLM", logoImg: "assets/glm.png", icon: "Z", color: "transparent", gradient: "linear-gradient(180deg, #ffffff 0%, #a1a1aa 45%, #27272a 100%)" },
-    "Gemini 3.5 Flash": { brand: "Google Gemini", logoImg: "assets/gemini.png", icon: "G", color: "transparent", gradient: "linear-gradient(180deg, #ff4e50 0%, #fabc05 32%, #22c55e 65%, #3b82f6 100%)" },
-    "Gemini 3.6 Flash": { brand: "Google Gemini", logoImg: "assets/gemini.png", icon: "G", color: "transparent", gradient: "linear-gradient(180deg, #ff4e50 0%, #fabc05 32%, #22c55e 65%, #3b82f6 100%)" },
-    "Muse Spark 1.1": { brand: "Meta", icon: "M", color: "#2563eb", gradient: "linear-gradient(180deg, #60a5fa 0%, #2563eb 55%, #1e3a8a 100%)" },
-    "Sonnet 4.6": { brand: "Anthropic Claude", logoImg: "assets/claude.png", icon: "A", color: "transparent", gradient: "linear-gradient(180deg, #fb923c 0%, #ea580c 55%, #7c2d12 100%)" },
-    "Qwen 3.8 Max": { brand: "Alibaba Qwen", logoImg: "assets/qwen.png", icon: "Q", color: "transparent", gradient: "linear-gradient(180deg, #818cf8 0%, #6366f1 50%, #312e81 100%)" },
-    "ChatGPT 5.6 Sol Max": { brand: "OpenAI ChatGPT", logoImg: "assets/chatgpt.png", icon: "O", color: "transparent", gradient: "linear-gradient(180deg, #ffffff 0%, #e2e8f0 40%, #94a3b8 100%)" }
+// Baseline values for percentage and multiplier calculations
+const BASES = {
+    logic: 50,
+    prose: 250,
+    flexibility: 100
 };
 
-const modelDisplayNames = {
-    "Gemini 3.1 Pro": "Gemini 3.1 Pro",
-    "Kimi k3": "Kimi k3",
-    "Opus 4.8": "Opus 4.8",
-    "Opus 4.6": "Opus 4.6",
-    "Gemini 3 Flash": "Gemini 3 Flash",
-    "Deepseek flash v4 (not updated)": "DeepSeek v4",
-    "Opus 5": "Opus 5",
-    "GLM 5.2": "GLM 5.2",
-    "Gemini 3.5 Flash": "Gemini 3.5 Flash",
-    "Gemini 3.6 Flash": "Gemini 3.6 Flash",
-    "Muse Spark 1.1": "Muse Spark 1.1",
-    "Sonnet 4.6": "Sonnet 4.6",
-    "Qwen 3.8 Max": "Qwen 3.8 Max",
-    "ChatGPT 5.6 Sol Max": "ChatGPT 5.6 Sol"
-};
+// Brand Icon and Logo mapping helper
+function getBrandLogoInfo(modelName) {
+    const name = modelName.toLowerCase();
+    if (name.includes('gemini')) {
+        return {
+            letter: 'G',
+            bg: 'linear-gradient(135deg, #1a73e8, #8ab4f8)',
+            color: '#ffffff',
+            img: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg'
+        };
+    } else if (name.includes('chatgpt') || name.includes('gpt')) {
+        return {
+            letter: 'O',
+            bg: 'linear-gradient(135deg, #10a37f, #0d8a6a)',
+            color: '#ffffff',
+            img: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg'
+        };
+    } else if (name.includes('opus') || name.includes('sonnet') || name.includes('claude')) {
+        return {
+            letter: 'A',
+            bg: 'linear-gradient(135deg, #d97706, #b45309)',
+            color: '#ffffff',
+            img: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg'
+        };
+    } else if (name.includes('deepseek')) {
+        return {
+            letter: 'D',
+            bg: 'linear-gradient(135deg, #0284c7, #0369a1)',
+            color: '#ffffff',
+            img: 'https://chat.deepseek.com/favicon.svg'
+        };
+    } else if (name.includes('kimi')) {
+        return {
+            letter: 'K',
+            bg: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
+            color: '#ffffff',
+            img: 'https://statics.moonshot.cn/assets/favicon.ico'
+        };
+    } else if (name.includes('glm')) {
+        return {
+            letter: 'Z',
+            bg: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+            color: '#ffffff',
+            img: null
+        };
+    } else if (name.includes('qwen')) {
+        return {
+            letter: 'Q',
+            bg: 'linear-gradient(135deg, #ea580c, #c2410c)',
+            color: '#ffffff',
+            img: null
+        };
+    } else if (name.includes('muse')) {
+        return {
+            letter: 'M',
+            bg: 'linear-gradient(135deg, #db2777, #be185d)',
+            color: '#ffffff',
+            img: null
+        };
+    }
+    return {
+        letter: modelName.charAt(0),
+        bg: 'linear-gradient(135deg, #ff2e93, #7e22ce)',
+        color: '#ffffff',
+        img: null
+    };
+}
 
-const modelQuirkMapping = {
-    "Gemini 3.1 Pro": { tag: "Instruction & Sycophancy Note", targetId: "quirk-gemini", isDanger: false },
-    "Kimi k3": { tag: "CoT Context Tax & Latency", targetId: "quirk-kimi", isDanger: false },
-    "ChatGPT 5.6 Sol Max": { tag: "92% Hallucination Flaw", targetId: "quirk-chatgpt", isDanger: true },
-    "Opus 5": { tag: "Opus Regression Note", targetId: "quirk-opus", isDanger: false }
-};
+// Global state
+let currentSort = 'rank';
+let currentFilter = 'all';
+let searchQuery = '';
 
-const container = document.getElementById('leaderboard-container');
-const sortBtns = document.querySelectorAll('.sort-btn');
-const filterPills = document.querySelectorAll('.filter-pill');
+// DOM Elements
+const leaderboardContainer = document.getElementById('leaderboard-container');
+const sortButtons = document.querySelectorAll('.sort-btn');
+const filterPills = document.querySelectorAll('.filter-pills .filter-pill');
 const searchInput = document.getElementById('model-search-input');
 const clearSearchBtn = document.getElementById('clear-search-btn');
 const noResultsCard = document.getElementById('no-results-card');
 const resetFilterBtn = document.getElementById('reset-filter-btn');
+const modelModalBackdrop = document.getElementById('model-modal-backdrop');
+const modalContent = document.getElementById('modal-content');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+const copyHarnessBtn = document.getElementById('copy-harness-btn');
+const toggleExpandBtn = document.getElementById('toggle-expand-btn');
+const exportHarnessBtn = document.getElementById('export-harness-btn');
+const harnessBody = document.getElementById('harness-body');
+const harnessFade = document.getElementById('harness-fade');
+const backToTopBtn = document.getElementById('back-to-top-btn');
 const modelCountBadge = document.getElementById('model-count-badge');
-
-// Export & Share Buttons
 const exportMarkdownBtn = document.getElementById('export-markdown-btn');
 const shareLinkBtn = document.getElementById('share-link-btn');
-const exportHarnessBtn = document.getElementById('export-harness-btn');
 
-// Matchup Elements
+// Matchup DOM Elements
 const matchupSelectA = document.getElementById('matchup-model-a');
 const matchupSelectB = document.getElementById('matchup-model-b');
 const matchupResultsContainer = document.getElementById('matchup-results-container');
 const randomMatchupBtn = document.getElementById('random-matchup-btn');
 
-// Modal Elements
-const modalBackdrop = document.getElementById('model-modal-backdrop');
-const modalContent = document.getElementById('modal-content');
-const modalCloseBtn = document.getElementById('modal-close-btn');
+// Animate numbers for methodology stat-boxes
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => {
+        const target = +stat.getAttribute('data-target');
+        const duration = 1200;
+        const stepTime = 20;
+        const totalSteps = duration / stepTime;
+        const increment = target / totalSteps;
+        let current = 0;
 
-// Harness Elements
-const copyBtn = document.getElementById('copy-harness-btn');
-const toggleExpandBtn = document.getElementById('toggle-expand-btn');
-const harnessBody = document.getElementById('harness-body');
-const harnessFade = document.getElementById('harness-fade');
-
-// Back to Top Element
-const backToTopBtn = document.getElementById('back-to-top-btn');
-
-// State Management
-let currentSort = 'rank';
-let currentFilter = 'all';
-let currentSearch = '';
-let isMatchupRolling = false;
-
-// Helper to get Icon/Logo HTML
-function getModelLogoHTML(modelName, sizeClass = "brand-logo-img") {
-    const cfg = modelBrandConfig[modelName] || { icon: "•", color: "#ff2e93", gradient: "var(--accent-gradient)" };
-    
-    if (cfg.brand === "Google Gemini") {
-        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;"><path d="M12 2C12 7.52 7.52 12 2 12C7.52 12 12 16.48 12 22C12 16.48 16.48 12 22 12C16.48 12 12 7.52 12 2Z" fill="url(#gemini-grad)"/><defs><linearGradient id="gemini-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#4E82EE"/><stop offset="0.5" stop-color="#9B72CB"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs></svg>`;
-    }
-    if (cfg.brand === "OpenAI ChatGPT") {
-        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none" stroke="#10a37f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 9 9M12 3a9 9 0 0 0-9 9M3 12a9 9 0 0 0 9 9M21 12a9 9 0 0 1-9 9M8 12h8M12 8v8"/></svg>`;
-    }
-    if (cfg.brand === "DeepSeek") {
-        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none"><path d="M4 14C4 8.48 8.48 4 14 4H18C19.1 4 20 4.9 20 6V10C20 15.52 15.52 20 10 20H6C4.9 20 4 19.1 4 18V14Z" fill="#3b82f6"/><circle cx="14" cy="10" r="2.5" fill="#ffffff"/></svg>`;
-    }
-    if (cfg.brand === "Meta") {
-        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none" stroke="#2563eb" stroke-width="2.2"><path d="M16.5 7.5C14.5 7.5 13 9 12 10.5C11 9 9.5 7.5 7.5 7.5C4.5 7.5 2.5 10 2.5 12.5C2.5 15.5 5 17.5 7.5 17.5C9.5 17.5 11 16 12 14.5C13 16 14.5 17.5 16.5 17.5C19 17.5 21.5 15.5 21.5 12.5C21.5 10 19.5 7.5 16.5 7.5Z"/></svg>`;
-    }
-    if (cfg.brand === "Alibaba Qwen") {
-        return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="width: 100%; height: 100%;" fill="none"><path d="M12 2L15 8.5L22 10L17 15L18.5 22L12 18.5L5.5 22L7 15L2 10L9 8.5L12 2Z" fill="#6366f1"/></svg>`;
-    }
-    if (cfg.logoImg) {
-        return `<img src="${cfg.logoImg}" alt="${cfg.brand}" class="${sizeClass}" onerror="this.outerHTML='<span class=\\'brand-logo-letter\\'>${cfg.icon}</span>'">`;
-    }
-    return `<span class="brand-logo-letter">${cfg.icon}</span>`;
-}
-
-// Render Artificial Analysis-Style Vertical Benchmark Column Charts
-function renderBenchmarkCharts() {
-    renderSingleChart('logic', 'logic-chart-container', 50);
-    renderSingleChart('prose', 'prose-chart-container', 250);
-    renderSingleChart('flexibility', 'flex-chart-container', 100);
-}
-
-function renderSingleChart(metric, containerId, baseline) {
-    const targetEl = document.getElementById(containerId);
-    if (!targetEl) return;
-    targetEl.innerHTML = '';
-
-    // Sort descending by metric
-    const sorted = [...modelsData].sort((a, b) => b[metric] - a[metric]);
-    const maxVal = sorted[0][metric];
-
-    sorted.forEach((model, idx) => {
-        const heightPct = Math.max(12, Math.round((model[metric] / maxVal) * 100));
-        const cfg = modelBrandConfig[model.name] || { icon: "•", color: "#ff2e93", gradient: "var(--accent-gradient)" };
-        const multText = (model[metric] / baseline).toFixed(1) + '×';
-        const displayName = modelDisplayNames[model.name] || model.name;
-        const iconHTML = getModelLogoHTML(model.name);
-
-        const col = document.createElement('div');
-        col.className = 'bar-column';
-        col.innerHTML = `
-            <div class="bar-pillar" style="height: ${heightPct}%; background: ${cfg.gradient};">
-                <span class="bar-val">${model[metric]}</span>
-            </div>
-            <div class="bar-brand-icon" style="background: ${cfg.color};" title="${cfg.brand}">${iconHTML}</div>
-            <div class="bar-label-rotated" title="${model.name}">${displayName}</div>
-            <div class="bar-tooltip">
-                <div class="bar-tooltip-title">${model.name}</div>
-                <div class="bar-tooltip-score">${model[metric]} pts (#${idx + 1})</div>
-                <div class="bar-tooltip-meta">${multText} Sol Base (${baseline})</div>
-            </div>
-        `;
-
-        col.addEventListener('click', () => {
-            openModelModal(model, model.rank);
-        });
-
-        targetEl.appendChild(col);
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                stat.textContent = target;
+                clearInterval(timer);
+            } else {
+                stat.textContent = Math.floor(current);
+            }
+        }, stepTime);
     });
 }
 
-// Head-to-Head Matchup Tool Engine
-function initMatchupTool() {
-    if (!matchupSelectA || !matchupSelectB || !matchupResultsContainer) return;
+// Render Leaderboard Model Cards
+function renderLeaderboard() {
+    let filtered = modelsData.filter(model => {
+        const matchesSearch = model.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              model.desc.toLowerCase().includes(searchQuery.toLowerCase());
+        
+        if (!matchesSearch) return false;
+
+        if (currentFilter === 'top-logic') return model.logic >= 400;
+        if (currentFilter === 'top-prose') return model.prose >= 400;
+        if (currentFilter === 'top-flex') return model.flexibility >= 400;
+
+        return true;
+    });
+
+    // Sorting
+    filtered.sort((a, b) => {
+        if (currentSort === 'rank') return a.rank - b.rank;
+        if (currentSort === 'logic') return b.logic - a.logic;
+        if (currentSort === 'prose') return b.prose - a.prose;
+        if (currentSort === 'flexibility') return b.flexibility - a.flexibility;
+        return 0;
+    });
+
+    leaderboardContainer.innerHTML = '';
+
+    if (filtered.length === 0) {
+        noResultsCard.style.display = 'block';
+    } else {
+        noResultsCard.style.display = 'none';
+        
+        filtered.forEach(model => {
+            const card = document.createElement('div');
+            card.className = 'model-card glass-card';
+            card.id = `model-card-${model.rank}`;
+
+            let rankClass = '';
+            let medalText = '';
+            if (model.rank === 1) { rankClass = 'rank-top-1'; medalText = 'Gold'; }
+            else if (model.rank === 2) { rankClass = 'rank-top-2'; medalText = 'Silver'; }
+            else if (model.rank === 3) { rankClass = 'rank-top-3'; medalText = 'Bronze'; }
+
+            // Check if model has a quirk callout
+            let quirkTagHTML = '';
+            if (model.name.includes('ChatGPT')) {
+                quirkTagHTML = `<a href="#quirk-chatgpt" class="card-quirk-tag danger" onclick="event.stopPropagation();">⚠ 92% Hallucination</a>`;
+            } else if (model.name.includes('Gemini 3.1 Pro')) {
+                quirkTagHTML = `<a href="#quirk-gemini" class="card-quirk-tag" onclick="event.stopPropagation();">✦ Instruction Quirk</a>`;
+            } else if (model.name.includes('Kimi')) {
+                quirkTagHTML = `<a href="#quirk-kimi" class="card-quirk-tag" onclick="event.stopPropagation();">⏱ CoT Tax</a>`;
+            } else if (model.name.includes('Opus 5')) {
+                quirkTagHTML = `<a href="#quirk-opus" class="card-quirk-tag" onclick="event.stopPropagation();">📉 Logic Regression</a>`;
+            }
+
+            const brand = getBrandLogoInfo(model.name);
+            const logoHTML = brand.img 
+                ? `<div class="card-brand-logo" style="background: ${brand.bg};"><img src="${brand.img}" alt="${model.name} logo" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'"></div>`
+                : `<div class="card-brand-logo" style="background: ${brand.bg};"><span class="brand-logo-letter">${brand.letter}</span></div>`;
+
+            card.innerHTML = `
+                <div class="model-rank-wrapper">
+                    <div class="model-rank ${rankClass}">#${model.rank}</div>
+                    ${medalText ? `<span class="rank-medal">${medalText}</span>` : ''}
+                </div>
+                <div class="model-info">
+                    <div class="model-header-line">
+                        ${logoHTML}
+                        <h3>${model.name}</h3>
+                        <span class="context-tag">${model.context} Context</span>
+                        ${quirkTagHTML}
+                    </div>
+                    <p class="model-desc">${model.desc}</p>
+                </div>
+                <div class="model-metrics">
+                    <div class="metric" title="Logic Score: ${model.logic}">
+                        <span class="metric-val">${model.logic}</span>
+                        <span class="metric-label">Logic</span>
+                    </div>
+                    <div class="metric" title="Prose Score: ${model.prose}">
+                        <span class="metric-val">${model.prose}</span>
+                        <span class="metric-label">Prose</span>
+                    </div>
+                    <div class="metric" title="Flexibility Score: ${model.flexibility}">
+                        <span class="metric-val">${model.flexibility}</span>
+                        <span class="metric-label">Flex</span>
+                    </div>
+                </div>
+            `;
+
+            card.addEventListener('click', () => openModelModal(model));
+            leaderboardContainer.appendChild(card);
+        });
+    }
+
+    if (modelCountBadge) {
+        modelCountBadge.textContent = `${filtered.length} Models Shown`;
+    }
+}
+
+// Render Artificial Analysis Style Vertical Column Charts
+function renderComparativeCharts() {
+    const logicContainer = document.getElementById('logic-chart-container');
+    const proseContainer = document.getElementById('prose-chart-container');
+    const flexContainer = document.getElementById('flex-chart-container');
+
+    if (!logicContainer || !proseContainer || !flexContainer) return;
+
+    // Highest points in dataset for proper scaling
+    const maxLogic = Math.max(...modelsData.map(m => m.logic)); // 500
+    const maxProse = Math.max(...modelsData.map(m => m.prose)); // 470
+    const maxFlex = Math.max(...modelsData.map(m => m.flexibility)); // 480
+
+    // 1. Logic Chart
+    const sortedByLogic = [...modelsData].sort((a, b) => b.logic - a.logic);
+    logicContainer.innerHTML = buildChartHTML(sortedByLogic, 'logic', maxLogic, '#a855f7', 'linear-gradient(180deg, #c084fc, #7e22ce)');
+
+    // 2. Prose Chart
+    const sortedByProse = [...modelsData].sort((a, b) => b.prose - a.prose);
+    proseContainer.innerHTML = buildChartHTML(sortedByProse, 'prose', maxProse, '#ff2e93', 'linear-gradient(180deg, #ff66b2, #ff2e93)');
+
+    // 3. Flexibility Chart
+    const sortedByFlex = [...modelsData].sort((a, b) => b.flexibility - a.flexibility);
+    flexContainer.innerHTML = buildChartHTML(sortedByFlex, 'flexibility', maxFlex, '#06b6d4', 'linear-gradient(180deg, #38bdf8, #0284c7)');
+
+    // Attach click listeners on columns to open model popup
+    document.querySelectorAll('.bar-column').forEach(col => {
+        col.addEventListener('click', () => {
+            const rank = parseInt(col.getAttribute('data-rank'));
+            const model = modelsData.find(m => m.rank === rank);
+            if (model) openModelModal(model);
+        });
+    });
+}
+
+// Helper to construct Side-by-Side Column Bar Chart
+function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
+    const baseValue = BASES[metricKey];
+
+    return dataList.map(model => {
+        const val = model[metricKey];
+        // Calculate height percentage relative to highest score (min 12% so bar is visible)
+        const heightPct = Math.max(14, Math.round((val / maxValue) * 88));
+        const multiplier = (val / baseValue).toFixed(1);
+        const brand = getBrandLogoInfo(model.name);
+
+        const iconHTML = brand.img
+            ? `<img src="${brand.img}" alt="${model.name}" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'">`
+            : `<span class="brand-logo-letter">${brand.letter}</span>`;
+
+        return `
+            <div class="bar-column" data-rank="${model.rank}" title="${model.name}: ${val} pts">
+                <!-- Hover Tooltip -->
+                <div class="bar-tooltip">
+                    <div class="bar-tooltip-title">${model.name}</div>
+                    <div class="bar-tooltip-score" style="color: ${themeColor};">${val} pts (${multiplier}x Sol)</div>
+                    <div class="bar-tooltip-meta">Rank #${model.rank} • ${model.context}</div>
+                </div>
+
+                <!-- Pillar Bar with Score & Brand Logo -->
+                <div class="bar-pillar" style="height: ${heightPct}%; background: ${gradientBg};">
+                    <span class="bar-val">${val}</span>
+                    <div class="bar-brand-icon" style="background: ${brand.bg};">
+                        ${iconHTML}
+                    </div>
+                </div>
+
+                <!-- Parallel Angled Label (Artificial Analysis Exact Style) -->
+                <span class="bar-label-rotated">${model.name}</span>
+            </div>
+        `;
+    }).join('');
+}
+
+// Populate Matchup Select Dropdowns
+function initMatchupDropdowns() {
+    if (!matchupSelectA || !matchupSelectB) return;
 
     matchupSelectA.innerHTML = '';
     matchupSelectB.innerHTML = '';
 
     modelsData.forEach(model => {
         const optA = document.createElement('option');
-        optA.value = model.name;
+        optA.value = model.rank;
         optA.textContent = `#${model.rank} ${model.name}`;
         matchupSelectA.appendChild(optA);
 
         const optB = document.createElement('option');
-        optB.value = model.name;
+        optB.value = model.rank;
         optB.textContent = `#${model.rank} ${model.name}`;
         matchupSelectB.appendChild(optB);
     });
 
-    // Default: Model A = Gemini 3.1 Pro (#1), Model B = Kimi k3 (#2)
-    matchupSelectA.value = "Gemini 3.1 Pro";
-    matchupSelectB.value = "Kimi k3";
+    // Default Selection: Gemini 3.1 Pro (#1) vs Kimi k3 (#2)
+    matchupSelectA.value = "1";
+    matchupSelectB.value = "2";
 
-    matchupSelectA.addEventListener('change', () => renderMatchup());
-    matchupSelectB.addEventListener('change', () => renderMatchup());
+    matchupSelectA.addEventListener('change', renderMatchupComparison);
+    matchupSelectB.addEventListener('change', renderMatchupComparison);
 
     if (randomMatchupBtn) {
-        randomMatchupBtn.addEventListener('click', triggerRandomMatchup);
+        randomMatchupBtn.addEventListener('click', triggerRouletteMatchup);
     }
 
-    renderMatchup();
+    renderMatchupComparison();
 }
 
-function triggerRandomMatchup() {
-    if (isMatchupRolling || !matchupSelectA || !matchupSelectB || modelsData.length < 2) return;
-    isMatchupRolling = true;
+// High-Energy Roulette Random Matchup Generator
+function triggerRouletteMatchup() {
+    if (randomMatchupBtn.classList.contains('charging')) return;
 
-    // Pick final target models (distinct)
-    const finalIdxA = Math.floor(Math.random() * modelsData.length);
-    let finalIdxB = Math.floor(Math.random() * (modelsData.length - 1));
-    if (finalIdxB >= finalIdxA) finalIdxB++;
+    randomMatchupBtn.classList.add('charging');
+    matchupResultsContainer.classList.add('shuffling');
 
-    // Charging state on button
-    if (randomMatchupBtn) {
-        randomMatchupBtn.classList.add('charging');
-        const btnText = randomMatchupBtn.querySelector('.btn-text');
-        if (btnText) btnText.textContent = "Rolling...";
-    }
+    let counter = 0;
+    const maxRolls = 14;
+    const rollInterval = 60;
 
-    if (matchupResultsContainer) {
-        matchupResultsContainer.classList.add('shuffling');
-        matchupResultsContainer.classList.remove('locked-in');
-    }
-
-    // Slot machine roulette ticker for 600ms
-    let rollTicks = 0;
-    const maxTicks = 10;
-    const intervalTime = 50; // ms
-
-    const shuffleInterval = setInterval(() => {
-        rollTicks++;
-        const tempIdxA = Math.floor(Math.random() * modelsData.length);
-        let tempIdxB = Math.floor(Math.random() * (modelsData.length - 1));
-        if (tempIdxB >= tempIdxA) tempIdxB++;
-
-        matchupSelectA.value = modelsData[tempIdxA].name;
-        matchupSelectB.value = modelsData[tempIdxB].name;
-        renderMatchup(true);
-
-        if (rollTicks >= maxTicks) {
-            clearInterval(shuffleInterval);
-
-            // Lock in target values
-            matchupSelectA.value = modelsData[finalIdxA].name;
-            matchupSelectB.value = modelsData[finalIdxB].name;
-            renderMatchup(false);
-
-            if (matchupResultsContainer) {
-                matchupResultsContainer.classList.remove('shuffling');
-                matchupResultsContainer.classList.add('locked-in');
-            }
-
-            if (randomMatchupBtn) {
-                const btnText = randomMatchupBtn.querySelector('.btn-text');
-                if (btnText) btnText.textContent = "Match Locked!";
-                
-                // Cooldown charge reset
-                setTimeout(() => {
-                    randomMatchupBtn.classList.remove('charging');
-                    if (btnText) btnText.textContent = "Surprise Me";
-                    isMatchupRolling = false;
-                }, 600);
-            } else {
-                isMatchupRolling = false;
-            }
+    const interval = setInterval(() => {
+        const randA = Math.floor(Math.random() * modelsData.length);
+        let randB = Math.floor(Math.random() * modelsData.length);
+        while (randB === randA) {
+            randB = Math.floor(Math.random() * modelsData.length);
         }
-    }, intervalTime);
+
+        matchupSelectA.value = modelsData[randA].rank;
+        matchupSelectB.value = modelsData[randB].rank;
+        renderMatchupComparison();
+
+        counter++;
+        if (counter >= maxRolls) {
+            clearInterval(interval);
+            randomMatchupBtn.classList.remove('charging');
+            matchupResultsContainer.classList.remove('shuffling');
+            matchupResultsContainer.classList.add('locked-in');
+            setTimeout(() => {
+                matchupResultsContainer.classList.remove('locked-in');
+            }, 600);
+        }
+    }, rollInterval);
 }
 
-function renderMatchup(isShuffling = false) {
-    if (!matchupSelectA || !matchupSelectB || !matchupResultsContainer) return;
+// Render Head-to-Head Comparison Results
+function renderMatchupComparison() {
+    if (!matchupResultsContainer) return;
 
-    const nameA = matchupSelectA.value;
-    const nameB = matchupSelectB.value;
+    const rankA = parseInt(matchupSelectA.value);
+    const rankB = parseInt(matchupSelectB.value);
 
-    const modelA = modelsData.find(m => m.name === nameA) || modelsData[0];
-    const modelB = modelsData.find(m => m.name === nameB) || modelsData[1];
+    const modelA = modelsData.find(m => m.rank === rankA) || modelsData[0];
+    const modelB = modelsData.find(m => m.rank === rankB) || modelsData[1];
 
-    const cfgA = modelBrandConfig[modelA.name] || { color: "transparent" };
-    const cfgB = modelBrandConfig[modelB.name] || { color: "transparent" };
+    // Compute Deltas
+    const logicDiff = modelA.logic - modelB.logic;
+    const proseDiff = modelA.prose - modelB.prose;
+    const flexDiff = modelA.flexibility - modelB.flexibility;
 
-    const iconA = getModelLogoHTML(modelA.name);
-    const iconB = getModelLogoHTML(modelB.name);
+    const brandA = getBrandLogoInfo(modelA.name);
+    const brandB = getBrandLogoInfo(modelB.name);
 
-    const logicDelta = modelA.logic - modelB.logic;
-    const proseDelta = modelA.prose - modelB.prose;
-    const flexDelta = modelA.flexibility - modelB.flexibility;
+    const logoA = brandA.img
+        ? `<div class="card-brand-logo" style="background: ${brandA.bg};"><img src="${brandA.img}" alt="${modelA.name}" class="brand-logo-img"></div>`
+        : `<div class="card-brand-logo" style="background: ${brandA.bg};"><span class="brand-logo-letter">${brandA.letter}</span></div>`;
 
+    const logoB = brandB.img
+        ? `<div class="card-brand-logo" style="background: ${brandB.bg};"><img src="${brandB.img}" alt="${modelB.name}" class="brand-logo-img"></div>`
+        : `<div class="card-brand-logo" style="background: ${brandB.bg};"><span class="brand-logo-letter">${brandB.letter}</span></div>`;
+
+    // Maximums for meter fills
     const maxLogic = 500;
     const maxProse = 500;
     const maxFlex = 500;
 
-    // Evaluator matchup verdict logic
+    const deltaLogicHTML = formatDeltaBox('Logic Delta', logicDiff, modelA.name, modelB.name);
+    const deltaProseHTML = formatDeltaBox('Prose Delta', proseDiff, modelA.name, modelB.name);
+    const deltaFlexHTML = formatDeltaBox('Flexibility Delta', flexDiff, modelA.name, modelB.name);
+
+    // Qualitative Takeaway
     let takeawayText = "";
-    if (modelA.name === modelB.name) {
-        takeawayText = "Comparing a model with itself yields an identical baseline. Choose two different models to analyze strategic trade-offs.";
-    } else if ((modelA.name === "Gemini 3.1 Pro" && modelB.name === "Kimi k3") || (modelA.name === "Kimi k3" && modelB.name === "Gemini 3.1 Pro")) {
-        takeawayText = "<strong>Evaluator Verdict:</strong> Choose <strong>Kimi k3</strong> for intricate mystery plots, long-horizon causal deductions, and strictly coherent constraints. Choose <strong>Gemini 3.1 Pro</strong> for vibrant prose, conversational chemistry, and unhindered creative scene fluidity.";
-    } else if ((modelA.name === "Opus 4.8" && modelB.name === "Opus 5") || (modelA.name === "Opus 5" && modelB.name === "Opus 4.8")) {
-        takeawayText = "<strong>Evaluator Verdict:</strong> <strong>Opus 4.8</strong> decisively outperforms Opus 5 in deductive logic (+80) and character neutrality. Opus 5 tends to be noticeably drier in dialogue and projects rigid biases.";
-    } else if (logicDelta >= 0 && proseDelta >= 0 && flexDelta >= 0 && (logicDelta > 0 || proseDelta > 0 || flexDelta > 0)) {
-        // Model A clean sweep!
-        const deltas = [];
-        if (logicDelta > 0) deltas.push(`Logic (+${logicDelta})`);
-        if (proseDelta > 0) deltas.push(`Prose (+${proseDelta})`);
-        if (flexDelta > 0) deltas.push(`Flexibility (+${flexDelta})`);
-        takeawayText = `<strong>Evaluator Verdict:</strong> Definitively choose <strong>${modelA.name}</strong>. It completely outclasses <strong>${modelB.name}</strong> across the board (${deltas.join(', ')}). In these creative benchmark evaluations, there is no scenario where ${modelB.name} is preferred over ${modelA.name}.`;
-    } else if (logicDelta <= 0 && proseDelta <= 0 && flexDelta <= 0 && (logicDelta < 0 || proseDelta < 0 || flexDelta < 0)) {
-        // Model B clean sweep!
-        const deltas = [];
-        if (logicDelta < 0) deltas.push(`Logic (+${Math.abs(logicDelta)})`);
-        if (proseDelta < 0) deltas.push(`Prose (+${Math.abs(proseDelta)})`);
-        if (flexDelta < 0) deltas.push(`Flexibility (+${Math.abs(flexDelta)})`);
-        takeawayText = `<strong>Evaluator Verdict:</strong> Definitively choose <strong>${modelB.name}</strong>. It completely outclasses <strong>${modelA.name}</strong> across the board (${deltas.join(', ')}). In these creative benchmark evaluations, there is no scenario where ${modelA.name} is preferred over ${modelB.name}.`;
+    if (modelA.rank === modelB.rank) {
+        takeawayText = `Same model selected. Choose two distinct models to evaluate architectural divergence.`;
     } else {
-        // Mixed trade-off
-        const strongA = [];
-        const strongB = [];
-        if (logicDelta > 0) strongA.push(`Logic (+${logicDelta})`);
-        else if (logicDelta < 0) strongB.push(`Logic (+${Math.abs(logicDelta)})`);
+        const advantagesA = [];
+        const advantagesB = [];
 
-        if (proseDelta > 0) strongA.push(`Prose (+${proseDelta})`);
-        else if (proseDelta < 0) strongB.push(`Prose (+${Math.abs(proseDelta)})`);
+        if (modelA.logic > modelB.logic) advantagesA.push(`Superior causal logic (+${logicDiff} pts)`);
+        else if (modelB.logic > modelA.logic) advantagesB.push(`Superior causal logic (+${Math.abs(logicDiff)} pts)`);
 
-        if (flexDelta > 0) strongA.push(`Flexibility (+${flexDelta})`);
-        else if (flexDelta < 0) strongB.push(`Flexibility (+${Math.abs(flexDelta)})`);
+        if (modelA.prose > modelB.prose) advantagesA.push(`Richer prose flow (+${proseDiff} pts)`);
+        else if (modelB.prose > modelA.prose) advantagesB.push(`Richer prose flow (+${Math.abs(proseDiff)} pts)`);
 
-        takeawayText = `<strong>Evaluator Verdict:</strong> Strategic trade-off. Choose <strong>${modelA.name}</strong> if your narrative priorities favor <strong>${strongA.join(' & ')}</strong>; choose <strong>${modelB.name}</strong> if you require stronger <strong>${strongB.join(' & ')}</strong>.`;
+        if (modelA.flexibility > modelB.flexibility) advantagesA.push(`Broader thematic versatility (+${flexDiff} pts)`);
+        else if (modelB.flexibility > modelA.flexibility) advantagesB.push(`Broader thematic versatility (+${Math.abs(flexDiff)} pts)`);
+
+        takeawayText = `<strong>${modelA.name}</strong> (${advantagesA.length > 0 ? advantagesA.join(', ') : 'No primary score edge'}) vs <strong>${modelB.name}</strong> (${advantagesB.length > 0 ? advantagesB.join(', ') : 'No primary score edge'}).`;
     }
 
     matchupResultsContainer.innerHTML = `
         <div class="matchup-cards-row">
-            <!-- Model A Card -->
+            <!-- Model A Box -->
             <div class="matchup-model-box">
                 <div class="matchup-model-header">
                     <div class="model-title-with-logo">
-                        <div class="card-brand-logo" style="background: ${cfgA.color};">${iconA}</div>
-                        <div class="matchup-model-title">${modelA.name}</div>
+                        ${logoA}
+                        <div>
+                            <div class="matchup-model-title">${modelA.name}</div>
+                            <span class="context-tag">Rank #${modelA.rank} • ${modelA.context}</span>
+                        </div>
                     </div>
-                    <span class="context-tag">#${modelA.rank} • ${modelA.context}</span>
                 </div>
                 <div class="matchup-metric-bars">
                     <div class="matchup-metric-item">
                         <div class="matchup-metric-labels">
-                            <span class="matchup-metric-name">Logic & Coherence</span>
-                            <span class="matchup-metric-score">${modelA.logic} pts</span>
+                            <span class="matchup-metric-name">Logic & Reasoning</span>
+                            <span class="matchup-metric-score" style="color: #c084fc;">${modelA.logic} pts</span>
                         </div>
                         <div class="matchup-meter">
-                            <div class="matchup-meter-fill" style="width: ${(modelA.logic / maxLogic) * 100}%; background: #a855f7;"></div>
+                            <div class="matchup-meter-fill" style="width: ${(modelA.logic / maxLogic) * 100}%; background: linear-gradient(90deg, #c084fc, #7e22ce);"></div>
                         </div>
                     </div>
                     <div class="matchup-metric-item">
                         <div class="matchup-metric-labels">
                             <span class="matchup-metric-name">Prose & Tone Quality</span>
-                            <span class="matchup-metric-score">${modelA.prose} pts</span>
+                            <span class="matchup-metric-score" style="color: #ff2e93;">${modelA.prose} pts</span>
                         </div>
                         <div class="matchup-meter">
-                            <div class="matchup-meter-fill" style="width: ${(modelA.prose / maxProse) * 100}%; background: var(--primary-pink);"></div>
+                            <div class="matchup-meter-fill" style="width: ${(modelA.prose / maxProse) * 100}%; background: linear-gradient(90deg, #ff66b2, #ff2e93);"></div>
                         </div>
                     </div>
                     <div class="matchup-metric-item">
                         <div class="matchup-metric-labels">
                             <span class="matchup-metric-name">Content Flexibility</span>
-                            <span class="matchup-metric-score">${modelA.flexibility} pts</span>
+                            <span class="matchup-metric-score" style="color: #38bdf8;">${modelA.flexibility} pts</span>
                         </div>
                         <div class="matchup-meter">
-                            <div class="matchup-meter-fill" style="width: ${(modelA.flexibility / maxFlex) * 100}%; background: #06b6d4;"></div>
+                            <div class="matchup-meter-fill" style="width: ${(modelA.flexibility / maxFlex) * 100}%; background: linear-gradient(90deg, #38bdf8, #0284c7);"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Model B Card -->
+            <!-- Model B Box -->
             <div class="matchup-model-box">
                 <div class="matchup-model-header">
                     <div class="model-title-with-logo">
-                        <div class="card-brand-logo" style="background: ${cfgB.color};">${iconB}</div>
-                        <div class="matchup-model-title">${modelB.name}</div>
+                        ${logoB}
+                        <div>
+                            <div class="matchup-model-title">${modelB.name}</div>
+                            <span class="context-tag">Rank #${modelB.rank} • ${modelB.context}</span>
+                        </div>
                     </div>
-                    <span class="context-tag">#${modelB.rank} • ${modelB.context}</span>
                 </div>
                 <div class="matchup-metric-bars">
                     <div class="matchup-metric-item">
                         <div class="matchup-metric-labels">
-                            <span class="matchup-metric-name">Logic & Coherence</span>
-                            <span class="matchup-metric-score">${modelB.logic} pts</span>
+                            <span class="matchup-metric-name">Logic & Reasoning</span>
+                            <span class="matchup-metric-score" style="color: #c084fc;">${modelB.logic} pts</span>
                         </div>
                         <div class="matchup-meter">
-                            <div class="matchup-meter-fill" style="width: ${(modelB.logic / maxLogic) * 100}%; background: #a855f7;"></div>
+                            <div class="matchup-meter-fill" style="width: ${(modelB.logic / maxLogic) * 100}%; background: linear-gradient(90deg, #c084fc, #7e22ce);"></div>
                         </div>
                     </div>
                     <div class="matchup-metric-item">
                         <div class="matchup-metric-labels">
                             <span class="matchup-metric-name">Prose & Tone Quality</span>
-                            <span class="matchup-metric-score">${modelB.prose} pts</span>
+                            <span class="matchup-metric-score" style="color: #ff2e93;">${modelB.prose} pts</span>
                         </div>
                         <div class="matchup-meter">
-                            <div class="matchup-meter-fill" style="width: ${(modelB.prose / maxProse) * 100}%; background: var(--primary-pink);"></div>
+                            <div class="matchup-meter-fill" style="width: ${(modelB.prose / maxProse) * 100}%; background: linear-gradient(90deg, #ff66b2, #ff2e93);"></div>
                         </div>
                     </div>
                     <div class="matchup-metric-item">
                         <div class="matchup-metric-labels">
                             <span class="matchup-metric-name">Content Flexibility</span>
-                            <span class="matchup-metric-score">${modelB.flexibility} pts</span>
+                            <span class="matchup-metric-score" style="color: #38bdf8;">${modelB.flexibility} pts</span>
                         </div>
                         <div class="matchup-meter">
-                            <div class="matchup-meter-fill" style="width: ${(modelB.flexibility / maxFlex) * 100}%; background: #06b6d4;"></div>
+                            <div class="matchup-meter-fill" style="width: ${(modelB.flexibility / maxFlex) * 100}%; background: linear-gradient(90deg, #38bdf8, #0284c7);"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Delta Comparison Summary -->
+        <!-- Delta Summary -->
         <div class="matchup-delta-summary">
-            <div class="delta-box">
-                <div class="delta-label">Logic Advantage</div>
-                <div class="delta-val ${logicDelta > 0 ? 'delta-winner-a' : logicDelta < 0 ? 'delta-winner-b' : 'delta-tie'}">
-                    ${logicDelta > 0 ? `+${logicDelta} (${modelA.name})` : logicDelta < 0 ? `+${Math.abs(logicDelta)} (${modelB.name})` : 'Tied'}
-                </div>
-            </div>
-            <div class="delta-box">
-                <div class="delta-label">Prose Advantage</div>
-                <div class="delta-val ${proseDelta > 0 ? 'delta-winner-a' : proseDelta < 0 ? 'delta-winner-b' : 'delta-tie'}">
-                    ${proseDelta > 0 ? `+${proseDelta} (${modelA.name})` : proseDelta < 0 ? `+${Math.abs(proseDelta)} (${modelB.name})` : 'Tied'}
-                </div>
-            </div>
-            <div class="delta-box">
-                <div class="delta-label">Flexibility Advantage</div>
-                <div class="delta-val ${flexDelta > 0 ? 'delta-winner-a' : flexDelta < 0 ? 'delta-winner-b' : 'delta-tie'}">
-                    ${flexDelta > 0 ? `+${flexDelta} (${modelA.name})` : flexDelta < 0 ? `+${Math.abs(flexDelta)} (${modelB.name})` : 'Tied'}
-                </div>
-            </div>
+            ${deltaLogicHTML}
+            ${deltaProseHTML}
+            ${deltaFlexHTML}
         </div>
 
-        <!-- Matchup Takeaway -->
+        <!-- Qualitative Verdict Box -->
         <div class="matchup-takeaway-card">
-            <h4>Direct Head-to-Head Takeaway</h4>
+            <h4>Evaluator Matchup Breakdown</h4>
             <p>${takeawayText}</p>
         </div>
     `;
 }
 
-function getProcessedModels() {
-    let filtered = [...modelsData];
-
-    // 1. Search Filter
-    if (currentSearch.trim() !== '') {
-        const query = currentSearch.toLowerCase().trim();
-        filtered = filtered.filter(model => 
-            model.name.toLowerCase().includes(query) ||
-            model.desc.toLowerCase().includes(query) ||
-            (model.context && model.context.toLowerCase().includes(query))
-        );
-    }
-
-    // 2. Category Quick Filters (Uncapped 100-baseline scale)
-    if (currentFilter === 'top-logic') {
-        filtered = filtered.filter(m => m.logic >= 400);
-    } else if (currentFilter === 'top-prose') {
-        filtered = filtered.filter(m => m.prose >= 400);
-    } else if (currentFilter === 'top-flex') {
-        filtered = filtered.filter(m => m.flexibility >= 400);
-    }
-
-    // 3. Sorting with competition ranking support
-    if (currentSort === 'rank') {
-        filtered.sort((a, b) => a.rank - b.rank);
-    } else if (currentSort === 'logic') {
-        filtered.sort((a, b) => b.logic - a.logic || a.rank - b.rank);
-    } else if (currentSort === 'prose') {
-        filtered.sort((a, b) => b.prose - a.prose || a.rank - b.rank);
-    } else if (currentSort === 'flexibility') {
-        filtered.sort((a, b) => b.flexibility - a.flexibility || a.rank - b.rank);
-    }
-
-    return filtered;
-}
-
-function renderLeaderboard() {
-    const data = getProcessedModels();
-    container.innerHTML = '';
-
-    if (data.length === 0) {
-        noResultsCard.style.display = 'block';
-        if (modelCountBadge) modelCountBadge.textContent = '0 Models Found';
-        return;
-    }
-
-    noResultsCard.style.display = 'none';
-    if (modelCountBadge) {
-        modelCountBadge.textContent = `${data.length} Model${data.length === 1 ? '' : 's'} Evaluated`;
-    }
-
-    let currentRank = 1;
-
-    data.forEach((model, index) => {
-        let displayRank = index + 1;
-
-        if (currentSort !== 'rank' && index > 0) {
-            if (model[currentSort] === data[index - 1][currentSort]) {
-                displayRank = currentRank;
-            } else {
-                currentRank = index + 1;
-                displayRank = currentRank;
-            }
-        } else {
-            currentRank = index + 1;
-        }
-
-        const cfg = modelBrandConfig[model.name] || { icon: "•", color: "transparent" };
-        const iconHTML = getModelLogoHTML(model.name);
-
-        const card = document.createElement('div');
-        card.className = 'model-card fade-in';
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `View details for ${model.name}`);
-
-        // Rank decoration
-        let rankClass = '';
-        let medalLabel = '';
-        if (displayRank === 1) {
-            rankClass = 'rank-top-1';
-            medalLabel = '<span class="rank-medal">#1 Pick</span>';
-        } else if (displayRank === 2) {
-            rankClass = 'rank-top-2';
-            medalLabel = '<span class="rank-medal">2nd</span>';
-        } else if (displayRank === 3) {
-            rankClass = 'rank-top-3';
-            medalLabel = '<span class="rank-medal">3rd</span>';
-        }
-
-        // Context Badge
-        const contextBadge = model.context && model.context !== 'N/A' 
-            ? `<span class="context-tag" title="Tested Context Window">${model.context}</span>` 
-            : '';
-
-        // Quirk Badge
-        const quirkInfo = modelQuirkMapping[model.name];
-        const quirkBadge = quirkInfo 
-            ? `<a href="#${quirkInfo.targetId}" class="card-quirk-tag ${quirkInfo.isDanger ? 'danger' : ''}" onclick="event.stopPropagation();" title="Jump to evaluator quirks">${quirkInfo.tag}</a>`
-            : '';
-
-        card.innerHTML = `
-            <div class="model-rank-wrapper">
-                <div class="model-rank ${rankClass}">#${displayRank}</div>
-                ${medalLabel}
-            </div>
-            <div class="model-info">
-                <div class="model-header-line">
-                    <div class="model-title-with-logo">
-                        <div class="card-brand-logo" style="background: ${cfg.color};">${iconHTML}</div>
-                        <h3>${model.name}</h3>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
-                        ${contextBadge}
-                        ${quirkBadge}
-                    </div>
-                </div>
-                <p class="model-desc">${model.desc}</p>
-            </div>
-            <div class="model-metrics">
-                <div class="metric" title="Logic Score: ${model.logic}">
-                    <span class="metric-val">${model.logic}</span>
-                    <span class="metric-label">Logic</span>
-                </div>
-                <div class="metric" title="Prose Score: ${model.prose}">
-                    <span class="metric-val">${model.prose}</span>
-                    <span class="metric-label">Prose</span>
-                </div>
-                <div class="metric" title="Flexibility Score: ${model.flexibility}">
-                    <span class="metric-val">${model.flexibility}</span>
-                    <span class="metric-label">Flex</span>
-                </div>
+// Helper to format individual delta box
+function formatDeltaBox(title, diff, nameA, nameB) {
+    if (diff === 0) {
+        return `
+            <div class="delta-box">
+                <div class="delta-label">${title}</div>
+                <div class="delta-val delta-tie">Even (0)</div>
             </div>
         `;
+    }
+    const winnerClass = diff > 0 ? 'delta-winner-a' : 'delta-winner-b';
+    const leaderName = diff > 0 ? nameA : nameB;
+    const sign = diff > 0 ? `+${diff}` : `+${Math.abs(diff)}`;
 
-        // Card Click opens Modal
-        card.addEventListener('click', () => openModelModal(model, displayRank));
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openModelModal(model, displayRank);
-            }
-        });
-
-        container.appendChild(card);
-    });
+    return `
+        <div class="delta-box">
+            <div class="delta-label">${title}</div>
+            <div class="delta-val ${winnerClass}">${sign} pts</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">${leaderName} leads</div>
+        </div>
+    `;
 }
 
-// Modal Logic
-function openModelModal(model, rank) {
-    if (!modalBackdrop || !modalContent) return;
+// Open Modal with Detailed Model Evaluation
+function openModelModal(model) {
+    const brand = getBrandLogoInfo(model.name);
+    const logoHTML = brand.img 
+        ? `<div class="card-brand-logo" style="background: ${brand.bg};"><img src="${brand.img}" alt="${model.name} logo" class="brand-logo-img"></div>`
+        : `<div class="card-brand-logo" style="background: ${brand.bg};"><span class="brand-logo-letter">${brand.letter}</span></div>`;
 
-    const cfg = modelBrandConfig[model.name] || { color: "transparent" };
-    const iconHTML = getModelLogoHTML(model.name);
-    const quirkInfo = modelQuirkMapping[model.name];
-    const quirkCallout = quirkInfo
-        ? `<div class="modal-quirk-callout">
-             <span><strong>Evaluator Note:</strong> Critical caveat recorded for this model.</span>
-             <a href="#${quirkInfo.targetId}" class="modal-quirk-jump" onclick="closeModelModal();">View Quirk Analysis →</a>
-           </div>`
-        : '';
+    // Multipliers relative to Sol baseline
+    const logicMult = (model.logic / BASES.logic).toFixed(1);
+    const proseMult = (model.prose / BASES.prose).toFixed(1);
+    const flexMult = (model.flexibility / BASES.flexibility).toFixed(1);
+
+    // Dynamic Quirk Callout
+    let quirkCallout = '';
+    if (model.name.includes('ChatGPT')) {
+        quirkCallout = `
+            <div class="modal-quirk-callout">
+                <span>⚠ <strong>Hallucination Caveat:</strong> Exhibits 92% hallucination severity rate despite top retrieval needle accuracy.</span>
+                <a href="#quirk-chatgpt" class="modal-quirk-jump" onclick="closeModelModal();">View Quirk &rarr;</a>
+            </div>
+        `;
+    } else if (model.name.includes('Gemini 3.1 Pro')) {
+        quirkCallout = `
+            <div class="modal-quirk-callout">
+                <span>✦ <strong>Instruction Drift:</strong> Slightly resists character arc progression and requires anti-sycophancy prompts.</span>
+                <a href="#quirk-gemini" class="modal-quirk-jump" onclick="closeModelModal();">View Quirk &rarr;</a>
+            </div>
+        `;
+    } else if (model.name.includes('Kimi')) {
+        quirkCallout = `
+            <div class="modal-quirk-callout">
+                <span>⏱ <strong>Reasoning Token Tax:</strong> Heavy context drain on internal CoT tokens before prose streaming begins.</span>
+                <a href="#quirk-kimi" class="modal-quirk-jump" onclick="closeModelModal();">View Quirk &rarr;</a>
+            </div>
+        `;
+    } else if (model.name.includes('Opus 5')) {
+        quirkCallout = `
+            <div class="modal-quirk-callout">
+                <span>📉 <strong>Logic Regression:</strong> Opus 4.8 scores higher in logic (480) than Opus 5 (400).</span>
+                <a href="#quirk-opus" class="modal-quirk-jump" onclick="closeModelModal();">View Quirk &rarr;</a>
+            </div>
+        `;
+    }
 
     modalContent.innerHTML = `
         <div class="modal-header-section">
-            <div class="modal-rank-badge">#${rank}</div>
+            <div class="modal-rank-badge">#${model.rank}</div>
             <div class="modal-title-area">
-                <div class="model-title-with-logo">
-                    <div class="card-brand-logo" style="background: ${cfg.color}; width: 34px; height: 34px;">${iconHTML}</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    ${logoHTML}
                     <h2>${model.name}</h2>
                 </div>
-                <span class="context-tag">${model.context && model.context !== 'N/A' ? model.context : 'Standard Context Window'}</span>
+                <span class="context-tag">${model.context} Context Window</span>
             </div>
         </div>
 
@@ -731,45 +740,169 @@ function openModelModal(model, rank) {
         <div class="modal-score-grid">
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.logic}</div>
-                <div class="modal-score-label">Logic & Coherence</div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.logic / 500) * 100}%;"></div></div>
+                <div class="modal-score-label">Logic (${logicMult}x Sol)</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.prose}</div>
-                <div class="modal-score-label">Prose & Tone</div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.prose / 500) * 100}%;"></div></div>
+                <div class="modal-score-label">Prose (${proseMult}x Sol)</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.flexibility}</div>
-                <div class="modal-score-label">Content Flexibility</div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.flexibility / 500) * 100}%;"></div></div>
+                <div class="modal-score-label">Flex (${flexMult}x Sol)</div>
             </div>
         </div>
 
         <div class="modal-desc-box">
-            <h4 style="color: var(--primary-pink); margin-bottom: 0.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Evaluator's Assessment</h4>
+            <h4 style="color: var(--primary-pink); margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Evaluator Deep-Dive Notes</h4>
             <p>${model.desc}</p>
         </div>
     `;
 
-    modalBackdrop.classList.add('active');
+    modelModalBackdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function closeModelModal() {
-    if (!modalBackdrop) return;
-    modalBackdrop.classList.remove('active');
+    modelModalBackdrop.classList.remove('active');
     document.body.style.overflow = '';
 }
 
-if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModelModal);
-if (modalBackdrop) {
-    modalBackdrop.addEventListener('click', (e) => {
-        if (e.target === modalBackdrop) closeModelModal();
+// Event Listeners for Filters & Sorting
+sortButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        sortButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentSort = btn.getAttribute('data-sort');
+        renderLeaderboard();
+    });
+});
+
+filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentFilter = pill.getAttribute('data-filter');
+        renderLeaderboard();
+    });
+});
+
+// Search input handling
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        if (clearSearchBtn) {
+            clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+        }
+        renderLeaderboard();
+    });
+}
+
+if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchQuery = '';
+        clearSearchBtn.style.display = 'none';
+        renderLeaderboard();
+        searchInput.focus();
+    });
+}
+
+if (resetFilterBtn) {
+    resetFilterBtn.addEventListener('click', () => {
+        searchQuery = '';
+        currentFilter = 'all';
+        currentSort = 'rank';
+        if (searchInput) searchInput.value = '';
+        if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+        
+        filterPills.forEach(p => p.classList.toggle('active', p.getAttribute('data-filter') === 'all'));
+        sortButtons.forEach(b => b.classList.toggle('active', b.getAttribute('data-sort') === 'rank'));
+        renderLeaderboard();
+    });
+}
+
+// Global keyboard shortcut ('/' to search)
+window.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        if (searchInput) {
+            searchInput.focus();
+            searchInput.select();
+        }
+    }
+    if (e.key === 'Escape') {
+        if (modelModalBackdrop.classList.contains('active')) {
+            closeModelModal();
+        }
+    }
+});
+
+// Modal Close Triggers
+if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeModelModal);
+}
+
+if (modelModalBackdrop) {
+    modelModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modelModalBackdrop) {
+            closeModelModal();
+        }
+    });
+}
+
+// System Instruction Harness Actions
+if (copyHarnessBtn) {
+    copyHarnessBtn.addEventListener('click', async () => {
+        const textToCopy = harnessBody.innerText;
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            copyHarnessBtn.classList.add('copied');
+            const originalHTML = copyHarnessBtn.innerHTML;
+            copyHarnessBtn.innerHTML = `<span>Copied!</span>`;
+            setTimeout(() => {
+                copyHarnessBtn.classList.remove('copied');
+                copyHarnessBtn.innerHTML = originalHTML;
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy harness: ', err);
+        }
+    });
+}
+
+if (toggleExpandBtn) {
+    toggleExpandBtn.addEventListener('click', () => {
+        harnessBody.classList.toggle('expanded');
+        const isExpanded = harnessBody.classList.contains('expanded');
+        toggleExpandBtn.querySelector('.btn-text').textContent = isExpanded ? 'Minimize' : 'Expand';
+        if (harnessFade) {
+            harnessFade.style.display = isExpanded ? 'none' : 'block';
+        }
+    });
+}
+
+if (exportHarnessBtn) {
+    exportHarnessBtn.addEventListener('click', () => {
+        const harnessText = harnessBody.innerText;
+        const blob = new Blob([harnessText], { type: 'text/markdown' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'system-harness.md';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     });
 }
 
 // Export Benchmark Leaderboard as Markdown
 if (exportMarkdownBtn) {
     exportMarkdownBtn.addEventListener('click', async () => {
-        let md = `# LLM Creative Writing Benchmark V3\n\n`;
+        let md = `# LLM Creative Writing Benchmark Beta V3\n\n`;
+        md += `> **Important Note**: I actually haven't tested or am testing models FOR v3. So that's why you won't see it.\n\n`;
         md += `> **Scale**: 600 Tests | 12 Genres | 150 Unique Samples\n`;
         md += `> **Sol Baseline**: 50 Logic / 250 Prose / 100 Flex (Uncapped Scale)\n\n`;
         md += `| Rank | Model Name | Logic | Prose | Flexibility | Context Window | Evaluator Notes |\n`;
@@ -800,7 +933,7 @@ if (shareLinkBtn) {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'LLM Creative Writing Benchmark V3',
+                    title: 'LLM Creative Writing Benchmark Beta V3',
                     text: 'Explore frontier LLM creative writing benchmark rankings, logic vs prose scores, and system prompt harness.',
                     url: window.location.href
                 });
@@ -824,267 +957,59 @@ if (shareLinkBtn) {
     });
 }
 
-// Export System Prompt as Markdown File
-if (exportHarnessBtn && harnessBody) {
-    exportHarnessBtn.addEventListener('click', () => {
-        const textToExport = `# Rules & Context - System Instruction Harness\n\n` + 
-            Array.from(harnessBody.querySelectorAll('p'))
-                .map(p => p.textContent.trim())
-                .join('\n\n');
-        
-        const blob = new Blob([textToExport], { type: 'text/markdown;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'creative-writing-system-harness.md';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-    });
-}
-
-// Sorting Event Listeners
-sortBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        sortBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentSort = btn.getAttribute('data-sort');
-        renderLeaderboard();
-    });
-});
-
-// Quick Filters
-filterPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-        filterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentFilter = pill.getAttribute('data-filter');
-        renderLeaderboard();
-    });
-});
-
-// Search Input Listener
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        currentSearch = e.target.value;
-        if (clearSearchBtn) {
-            clearSearchBtn.style.display = currentSearch.length > 0 ? 'block' : 'none';
-        }
-        renderLeaderboard();
-    });
-}
-
-if (clearSearchBtn) {
-    clearSearchBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        currentSearch = '';
-        clearSearchBtn.style.display = 'none';
-        searchInput.focus();
-        renderLeaderboard();
-    });
-}
-
-if (resetFilterBtn) {
-    resetFilterBtn.addEventListener('click', () => {
-        if (searchInput) searchInput.value = '';
-        currentSearch = '';
-        if (clearSearchBtn) clearSearchBtn.style.display = 'none';
-        currentFilter = 'all';
-        filterPills.forEach(p => p.classList.remove('active'));
-        const allPill = document.querySelector('.filter-pill[data-filter="all"]');
-        if (allPill) allPill.classList.add('active');
-        renderLeaderboard();
-    });
-}
-
-// Keyboard Shortcuts
-window.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement !== searchInput) {
-        e.preventDefault();
-        if (searchInput) {
-            searchInput.focus();
-            searchInput.select();
-        }
-    } else if (e.key === 'Escape') {
-        closeModelModal();
+// Floating Back to Top Button
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
     }
 });
 
-// Harness Expand/Collapse Toggle
-if (toggleExpandBtn && harnessBody) {
-    toggleExpandBtn.addEventListener('click', () => {
-        const isExpanded = harnessBody.classList.toggle('expanded');
-        toggleExpandBtn.querySelector('.btn-text').textContent = isExpanded ? 'Collapse' : 'Expand';
-        if (harnessFade) {
-            harnessFade.style.display = isExpanded ? 'none' : 'block';
-        }
-    });
-}
-
-// Harness Copy Functionality
-if (copyBtn && harnessBody) {
-    copyBtn.addEventListener('click', async () => {
-        const textToCopy = Array.from(harnessBody.querySelectorAll('p'))
-            .map(p => p.textContent.trim())
-            .join('\n\n');
-        
-        try {
-            await navigator.clipboard.writeText(textToCopy);
-            const originalHTML = copyBtn.innerHTML;
-            copyBtn.classList.add('copied');
-            copyBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span class="btn-text">Copied!</span>
-            `;
-            setTimeout(() => {
-                copyBtn.classList.remove('copied');
-                copyBtn.innerHTML = originalHTML;
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
-        }
-    });
-
-    if (harnessFade) {
-        harnessBody.addEventListener('scroll', () => {
-            const isBottom = harnessBody.scrollHeight - harnessBody.scrollTop <= harnessBody.clientHeight + 20;
-            harnessFade.style.opacity = isBottom ? '0' : '1';
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
-    }
+    });
 }
 
-// ==========================================
-// High-Performance Smooth & Fast Scroll Engine
-// ==========================================
-let currentScrollAnimationId = null;
-
-function fastSmoothScrollTo(targetY, customDuration = null) {
-    if (currentScrollAnimationId) {
-        cancelAnimationFrame(currentScrollAnimationId);
-        currentScrollAnimationId = null;
-    }
-
-    const startY = window.pageYOffset || document.documentElement.scrollTop;
-    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    const clampedTargetY = Math.max(0, Math.min(targetY, maxScrollY));
-    const distance = clampedTargetY - startY;
-
-    if (Math.abs(distance) < 4) return;
-
-    // Fast, responsive, yet buttery smooth duration scaling (320ms - 560ms max)
-    const duration = customDuration !== null 
-        ? customDuration 
-        : Math.min(560, Math.max(320, 260 + Math.abs(distance) * 0.08));
-
-    let startTime = null;
-
-    function animation(currentTime) {
-        if (!startTime) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-
-        // easeInOutCubic: smooth acceleration and gentle deceleration
-        const ease = progress < 0.5
-            ? 4 * progress * progress * progress
-            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-        window.scrollTo(0, startY + (distance * ease));
-
-        if (timeElapsed < duration) {
-            currentScrollAnimationId = requestAnimationFrame(animation);
-        } else {
-            window.scrollTo(0, clampedTargetY);
-            currentScrollAnimationId = null;
-        }
-    }
-
-    currentScrollAnimationId = requestAnimationFrame(animation);
-}
-
-function fastSmoothScrollToElement(el, offset = 28) {
-    if (!el) return;
-    const currentY = window.pageYOffset || document.documentElement.scrollTop;
-    const rect = el.getBoundingClientRect();
-    const targetY = Math.max(0, rect.top + currentY - offset);
-    fastSmoothScrollTo(targetY);
-}
-
-// Cancel scroll animation if user interrupts with wheel, touch, or keys
-['wheel', 'touchstart', 'keydown'].forEach(evt => {
-    window.addEventListener(evt, (e) => {
-        if (currentScrollAnimationId && (evt !== 'keydown' || ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(e.key))) {
-            cancelAnimationFrame(currentScrollAnimationId);
-            currentScrollAnimationId = null;
-        }
-    }, { passive: true });
-});
-
-// Intercept all internal anchor navigation links for fluid, fast scrolling
+// Fast Smooth Scroll Engine for all anchor links & buttons
 document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
 
-    const hash = anchor.getAttribute('href');
-    if (!hash || hash === '#' || hash === '#!') return;
+    const targetId = anchor.getAttribute('href').substring(1);
+    if (!targetId) return;
 
-    const targetEl = document.querySelector(hash);
-    if (targetEl) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
         e.preventDefault();
+        
+        // Custom offset scroll accounting for zoom
+        const elementRect = targetElement.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        const targetScrollPosition = absoluteElementTop - 30;
 
-        if (anchor.classList.contains('modal-quirk-jump')) {
-            closeModelModal();
-        }
+        window.scrollTo({
+            top: Math.max(0, targetScrollPosition),
+            behavior: 'smooth'
+        });
 
-        fastSmoothScrollToElement(targetEl, 28);
-
-        if (history.pushState) {
-            history.pushState(null, '', hash);
-        } else {
-            location.hash = hash;
-        }
+        // Flash target section for instant visual confirmation
+        targetElement.style.transition = 'box-shadow 0.3s ease';
+        targetElement.style.boxShadow = '0 0 35px rgba(255, 46, 147, 0.45)';
+        setTimeout(() => {
+            targetElement.style.boxShadow = '';
+        }, 1200);
     }
 });
 
-// Floating Back to Top Button
-if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
-        }
-    });
-
-    backToTopBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        fastSmoothScrollTo(0, 380);
-    });
-}
-
-// Stat Counter Animation
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const duration = 1200; // ms
-        const step = target / (duration / 16);
-        let current = 0;
-
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                counter.textContent = target;
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current);
-            }
-        }, 16);
-    });
-}
-
-// Initialize
-renderBenchmarkCharts();
-initMatchupTool();
-renderLeaderboard();
-animateCounters();
+// Initialize on DOM Ready
+document.addEventListener('DOMContentLoaded', () => {
+    animateStats();
+    renderComparativeCharts();
+    initMatchupDropdowns();
+    renderLeaderboard();
+});
