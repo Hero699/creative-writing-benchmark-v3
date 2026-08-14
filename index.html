@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Writing LLM Benchmark V3</title>
+    <title>Creative Writing LLM Benchmark Beta V3</title>
     <meta name="description" content="The definitive benchmark for LLM creative writing capabilities.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=betav3">
+    <style>
+        body {
+            zoom: 0.8;
+        }
+        @media (max-width: 768px) {
+            body {
+                zoom: 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="background-animation"></div>
     
     <header class="glass-header">
         <div class="header-content">
-            <div class="header-badge">BENCHMARK V3 • SOTA CREATIVE EVALUATION</div>
-            <h1>LLM Creative Writing Benchmark <span>V3</span></h1>
+            <div class="header-badge">BENCHMARK BETA V3 • SOTA CREATIVE EVALUATION</div>
+            <h1>LLM Creative Writing Benchmark <span>Beta V3</span></h1>
             <p class="subtitle">SOTA Models in AI Prose, Logic, and Flexibility</p>
 
             <!-- Quick Navigation Bar for Instant Section Discovery -->
@@ -32,6 +41,12 @@
     </header>
 
     <main class="container">
+        <!-- Important Notice Banner -->
+        <div class="important-notice-banner glass-card fade-in">
+            <div class="notice-badge">IMPORTANT NOTE</div>
+            <p class="notice-text">I actually haven't tested or am testing models FOR v3. So that's why you won't see it.</p>
+        </div>
+
         <!-- 1. Methodology Section -->
         <section class="methodology-card glass-card fade-in" id="methodology">
             <div class="section-title-wrapper">
@@ -393,11 +408,10 @@
 
     <footer>
         <div class="footer-content">
-            <p>Built for the <strong>V3 Creative Writing Benchmark</strong>. Data compiled from extensive multi-genre system harness testing.</p>
-            <p class="footer-sub">Standardized testing across 14 frontier LLMs • Sol Baseline: 50 Logic / 250 Prose / 100 Flex (Uncapped Point Scale)</p>
+            <p>Made by: Hussninyio262.</p>
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=betav3"></script>
 </body>
 </html>
