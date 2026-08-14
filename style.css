@@ -27,9 +27,16 @@
 }
 
 html {
+    font-size: 80%;
     scroll-behavior: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 46, 147, 0.4) #0a0005;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 85%;
+    }
 }
 
 section[id], .quirk-card[id], .glass-card[id] {
@@ -198,13 +205,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Container - Centered Optimal Width */
 .container {
-    max-width: 1240px;
+    max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 3rem;
 }
 
 /* Section Header Titles */
