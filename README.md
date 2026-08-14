@@ -1,4 +1,6 @@
-# LLM Creative Writing Benchmark V3
+# LLM Creative Writing Benchmark Beta V3
+
+> **Important Note**: I actually haven't tested or am testing models FOR v3. So that's why you won't see it.
 
 Comprehensive creative writing evaluation across 14 frontier and open-weights LLMs tested on 600 narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
 
@@ -21,7 +23,7 @@ Live Public Site: [https://hero699.github.io/creative-writing-benchmark-v3/](htt
 
 | Rank | Model Name | Logic | Prose | Flexibility | Context Window | Evaluator Notes |
 |:---:|:---|:---:|:---:|:---:|:---:|:---|
-| #1 | **Gemini 3.1 Pro** | 425 | 470 | 480 | 1M | Absolute best at prose and content flexibility. Resists earned character development, slight instruction-following drift. |
+| #1 | **Gemini 3.1 Pro** | 405 | 470 | 480 | 1M | Absolute best at prose and content flexibility. Resists earned character development, slight instruction-following drift. |
 | #2 | **Kimi k3** | 500 | 400 | 400 | 256k (1M API) | Number one in logic, decent at prose. Heavy CoT reasoning tax. |
 | #3 | **Opus 4.8** | 480 | 380 | 350 | 200k (1M API) | Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic. |
 | #4 | **Opus 4.6** | 460 | 400 | 350 | 200k (1M API) | Decent logic, slightly better than 4.8 in prose. |
