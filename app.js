@@ -143,35 +143,35 @@ function getBrandLogoInfo(modelName) {
             letter: 'G',
             bg: 'linear-gradient(135deg, #1a73e8, #8ab4f8)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12%2024C12%2017.373%206.627%2012%200%2012C6.627%2012%2012%206.627%2012%200C12%206.627%2017.373%2012%2024%2012C17.373%2012%2012%2017.373%2012%2024Z%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTEyIDI0QzEyIDE3LjM3MyA2LjYyNyAxMiAwIDEyQzYuNjI3IDEyIDEyIDYuNjI3IDEyIDBDMTIgNi42MjcgMTcuMzczIDEyIDI0IDEyQzE3LjM3MyAxMiAxMiAxNy4zNzMgMTIgMjRaIiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+'
         };
     } else if (name.includes('chatgpt') || name.includes('gpt')) {
         return {
             letter: 'O',
             bg: 'linear-gradient(135deg, #10a37f, #0d8a6a)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M22.28%209.82a5.98%205.98%200%200%200-.51-4.91%206.05%206.05%200%200%200-6.51-2.9A6.06%206.06%200%200%200%204.98%204.18a5.98%205.98%200%200%200-4%202.9%206.05%206.05%200%200%200%20.75%207.1%205.98%205.98%200%200%200%20.51%204.91%206.05%206.05%200%200%200%206.51%202.9A5.98%205.98%200%200%200%2013.26%2024a6.06%206.06%200%200%200%205.77-4.2%205.99%205.99%200%200%200%204-2.9%206.06%206.06%200%200%200-.75-7.08zm-9.02%2012.61a4.48%204.48%200%200%201-2.88-1.04l.14-.08%204.78-2.76a.79%20.79%200%200%200%20.39-.68v-6.74l2.02%201.17a.07%20.07%200%200%201%20.04.05v5.59a4.5%204.5%200%200%201-4.49%204.49zm-9.66-4.13a4.47%204.47%200%200%201-.53-3.01l.14.08%204.78%202.76a.77%20.77%200%200%200%20.78%200l5.85-3.37v2.33a.08%20.08%200%200%201-.04.06L9.74%2019.95a4.5%204.5%200%200%201-6.14-1.65zM2.34%207.9a4.48%204.48%200%200%201%202.37-1.98v5.69a.77%20.77%200%200%200%20.38.67l5.82%203.36-2.02%201.17a.08%20.08%200%200%201-.07%200l-4.83-2.79A4.5%204.5%200%200%201%202.34%207.87zm16.6%203.85L13.1%208.36l2.02-1.16a.08%20.08%200%200%201%20.07%200l4.83%202.79a4.49%204.49%200%200%201-.68%208.1v-5.67a.79%20.79%200%200%200-.4-.67zm2.01-3.02l-.14-.08-4.77-2.79a.78%20.78%200%200%200-.79%200L9.41%209.23V6.9a.07%20.07%200%200%201%20.03-.06l4.83-2.79a4.5%204.5%200%200%201%206.68%204.66zM8.31%2012.86l-2.02-1.16a.08%20.08%200%200%201-.04-.06V6.07a4.5%204.5%200%200%201%207.38-3.45l-.15.08-4.78%202.76a.79%20.79%200%200%200-.39.68zm1.1-2.36l2.6-1.5%202.6%201.5v3l-2.6%201.5-2.6-1.5Z%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMi4yOCA5LjgyYTUuOTggNS45OCAwIDAgMC0uNTEtNC45MSA2LjA1IDYuMDUgMCAwIDAtNi41MS0yLjlBNi4wNiA2LjA2IDAgMCAwIDQuOTggNC4xOGE1Ljk4IDUuOTggMCAwIDAtNCAyLjkgNi4wNSA2LjA1IDAgMCAwIC43NSA3LjEgNS45OCA1Ljk4IDAgMCAwIC41MSA0LjkxIDYuMDUgNi4wNSAwIDAgMCA2LjUxIDIuOUE1Ljk4IDUuOTggMCAwIDAgMTMuMjYgMjRhNi4wNiA2LjA2IDAgMCAwIDUuNzctNC4yIDUuOTkgNS45OSAwIDAgMCA0LTIuOSA2LjA2IDYuMDYgMCAwIDAtLjc1LTcuMDh6bS05LjAyIDEyLjYxYTQuNDggNC40OCAwIDAgMS0yLjg4LTEuMDRsLjE0LS4wOCA0Ljc4LTIuNzZhLjc5Ljc5IDAgMCAwIC4zOS0uNjh2LTYuNzRsMi4wMiAxLjE3YS4wNy4wNyAwIDAgMSAuMDQuMDV2NS41OWE0LjUgNC41IDAgMCAxLTQuNDkgNC40OXptLTkuNjYtNC4xM2E0LjQ3IDQuNDcgMCAwIDEtLjUzLTMuMDFsLjE0LjA4IDQuNzggMi43NmEuNzcuNzcgMCAwIDAgLjc4IDBsNS44NS0zLjM3djIuMzNhLjA4LjA4IDAgMCAxLS4wNC4wNkw5Ljc0IDE5Ljk1YTQuNSA0LjUgMCAwIDEtNi4xNC0xLjY1ek0yLjM0IDcuOWE0LjQ4IDQuNDggMCAwIDEgMi4zNy0xLjk4djUuNjlhLjc3Ljc3IDAgMCAwIC4zOC42N2w1LjgyIDMuMzYtMi4wMiAxLjE3YS4wOC4wOCAwIDAgMS0uMDcgMGwtNC44My0yLjc5QTQuNSA0LjUgMCAwIDEgMi4zNCA3Ljg3em0xNi42IDMuODVMMTMuMSA4LjM2bDIuMDItMS4xNmEuMDguMDggMCAwIDEgLjA3IDBsNC44MyAyLjc5YTQuNDkgNC40OSAwIDAgMS0uNjggOC4xdi01LjY3YS43OS43OSAwIDAgMC0uNC0uNjd6bTIuMDEtMy4wMmwtLjE0LS4wOC00Ljc3LTIuNzlhLjc4Ljc4IDAgMCAwLS43OSAwTDkuNDEgOS4yM1Y2LjlhLjA3LjA3IDAgMCAxIC4wMy0uMDZsNC44My0yLjc5YTQuNSA0LjUgMCAwIDEgNi42OCA0LjY2ek04LjMxIDEyLjg2bC0yLjAyLTEuMTZhLjA4LjA4IDAgMCAxLS4wNC0uMDZWNi4wN2E0LjUgNC41IDAgMCAxIDcuMzgtMy40NWwtLjE1LjA4LTQuNzggMi43NmEuNzkuNzkgMCAwIDAtLjM5LjY4em0xLjEtMi4zNmwyLjYtMS41IDIuNiAxLjV2M2wtMi42IDEuNS0yLjYtMS41WiIvPjwvc3ZnPg=='
         };
     } else if (name.includes('opus') || name.includes('sonnet') || name.includes('claude')) {
         return {
             letter: 'A',
             bg: 'linear-gradient(135deg, #d97706, #b45309)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20d%3D%22M13.8%203.5L8.2%2019.5H11L12.3%2015.6H17.7L19%2019.5H21.8L16.2%203.5H13.8ZM13.1%2013.1L15%207.4L16.9%2013.1H13.1ZM2.2%2019.5H5L8.5%209.5H5.7L2.2%2019.5Z%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTEzLjggMy41TDguMiAxOS41SDExTDEyLjMgMTUuNkgxNy43TDE5IDE5LjVIMjEuOEwxNi4yIDMuNUgxMy44Wk0xMy4xIDEzLjFMMTUgNy40TDE2LjkgMTMuMUgxMy4xWk0yLjIgMTkuNUg1TDguNSA5LjVINS43TDIuMiAxOS41WiIvPjwvc3ZnPg=='
         };
     } else if (name.includes('deepseek')) {
         return {
             letter: 'D',
             bg: 'linear-gradient(135deg, #0284c7, #0369a1)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M25%2065%20C30%2042%2048%2028%2072%2028%20C90%2028%2098%2038%2096%2052%20C88%2048%2078%2046%2068%2048%20C52%2050%2038%2062%2030%2076%20C26%2073%2024%2070%2012%2065%20Z%22%20fill%3D%22%23ffffff%22/%3E%3Ccircle%20cx%3D%2246%22%20cy%3D%2246%22%20r%3D%225%22%20fill%3D%22%230284c7%22/%3E%3Cpath%20d%3D%22M18%2068%20C10%2074%206%2082%205%2090%20C15%2089%2024%2083%2030%2076%20C25%2073%2021%2070%2018%2068%20Z%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMjUgNjUgQzMwIDQyIDQ4IDI4IDcyIDI4IEM5MCAyOCA5OCAzOCA5NiA1MiBDODggNDggNzggNDYgNjggNDggQzUyIDUwIDM4IDYyIDMwIDc2IEMyNiA3MyAyNCA3MCAxMiA2NSBaIiBmaWxsPSIjZmZmZmZmIi8+PGNpcmNsZSBjeD0iNDYiIGN5PSI0NiIgcj0iNSIgZmlsbD0iIzAyODRjNyIvPjxwYXRoIGQ9Ik0xOCA2OCBDMTAgNzQgNiA4MiA1IDkwIEMxNSA4OSAyNCA4MyAzMCA3NiBDMjUgNzMgMjEgNzAgMTggNjggWiIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg=='
         };
     } else if (name.includes('kimi')) {
         return {
             letter: 'K',
             bg: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M30%2020%20h16%20v26%20l22-26%20h20%20L62%2050%20l28%2030%20H68%20L46%2054%20v26%20H30%20V20%20z%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMzAgMjAgaDE2IHYyNiBsMjItMjYgaDIwIEw2MiA1MCBsMjggMzAgSDY4IEw0NiA1NCB2MjYgSDMwIFYyMCB6IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+'
         };
     } else if (name.includes('glm') || name.includes('z ai') || name.includes('zhipu')) {
         return {
@@ -185,14 +185,14 @@ function getBrandLogoInfo(modelName) {
             letter: 'Q',
             bg: 'linear-gradient(135deg, #ea580c, #c2410c)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpolygon%20points%3D%2250%2C12%2086%2C32%2086%2C72%2050%2C92%2014%2C72%2014%2C32%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%228%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2252%22%20r%3D%2215%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cG9seWdvbiBwb2ludHM9IjUwLDEyIDg2LDMyIDg2LDcyIDUwLDkyIDE0LDcyIDE0LDMyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTIiIHI9IjE1IiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+'
         };
     } else if (name.includes('muse')) {
         return {
             letter: 'M',
             bg: 'linear-gradient(135deg, #db2777, #be185d)',
             color: '#ffffff',
-            img: 'data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M22%2078%20V24%20L50%2056%20L78%2024%20V78%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E'
+            img: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMjIgNzggVjI0IEw1MCA1NiBMNzggMjQgVjc4IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg=='
         };
     }
     return {
