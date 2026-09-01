@@ -6,80 +6,89 @@ const modelsData = [
         logic: 405,
         prose: 470,
         flexibility: 480,
+        knowledge: 500,
         context: "1M",
-        desc: "Absolute best at prose and content flexibility. Resists earned character development, slight instruction-following drift."
+        desc: "Absolute best at prose, canon knowledge recall, and content flexibility. Resists earned character development, slight instruction-following drift."
     },
     {
         rank: 2,
+        name: "Gemini 3.7 Flash",
+        logic: 390,
+        prose: 430,
+        flexibility: 490,
+        knowledge: 480,
+        context: "1M",
+        desc: "Slightly weaker logic than 3.1 Pro, but the flexibility champion. More concise, resistant to sycophancy, with rapid punchy prose."
+    },
+    {
+        rank: 3,
         name: "Kimi k3",
         logic: 500,
         prose: 400,
         flexibility: 400,
+        knowledge: 420,
         context: "256k (1M API)",
         desc: "Number one in logic, decent at prose. Heavy CoT reasoning tax."
     },
     {
-        rank: 3,
+        rank: 4,
         name: "GLM 5.3",
         logic: 510,
         prose: 360,
         flexibility: 420,
+        knowledge: 380,
         context: "200k (1M API)",
         desc: "Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility."
     },
     {
-        rank: 4,
+        rank: 5,
         name: "Opus 4.8",
         logic: 480,
         prose: 380,
         flexibility: 350,
+        knowledge: 350,
         context: "200k (1M API)",
         desc: "Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic."
     },
     {
-        rank: 5,
+        rank: 6,
         name: "Opus 4.6",
         logic: 460,
         prose: 400,
         flexibility: 350,
+        knowledge: 340,
         context: "200k (1M API)",
         desc: "Decent logic, slightly better than 4.8 in prose."
     },
     {
-        rank: 6,
+        rank: 7,
         name: "Gemini 3 Flash",
         logic: 320,
         prose: 420,
         flexibility: 450,
+        knowledge: 400,
         context: "1M",
         desc: "Very flexible. Amazing lightweight model."
     },
     {
-        rank: 7,
+        rank: 8,
         name: "DeepSeek v4",
         logic: 150,
         prose: 400,
         flexibility: 480,
+        knowledge: 270,
         context: "1M",
         desc: "Great flexibility, lower logic consistency."
     },
     {
-        rank: 8,
+        rank: 9,
         name: "Opus 5",
         logic: 400,
         prose: 300,
         flexibility: 200,
+        knowledge: 360,
         context: "200k (1M API)",
         desc: "Highly capable logic, but very limited flexibility and dry prose."
-    },
-    {
-        rank: 9,
-        name: "GLM 5.2",
-        logic: 380,
-        prose: 300,
-        flexibility: 250,
-        context: "200k",
-        desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
     },
     {
         rank: 10,
@@ -87,51 +96,67 @@ const modelsData = [
         logic: 380,
         prose: 350,
         flexibility: 350,
+        knowledge: 440,
         context: "1M",
         desc: "Solid step up in logic from 3 Flash."
     },
     {
         rank: 11,
+        name: "GLM 5.2",
+        logic: 380,
+        prose: 300,
+        flexibility: 250,
+        knowledge: 300,
+        context: "200k",
+        desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
+    },
+    {
+        rank: 12,
         name: "Gemini 3.6 Flash",
         logic: 300,
         prose: 320,
         flexibility: 370,
+        knowledge: 460,
         context: "1M-2M",
         desc: "Excellent long-context needle retrieval."
     },
     {
-        rank: 12,
+        rank: 13,
         name: "Muse Spark 1.1",
         logic: 360,
         prose: 300,
         flexibility: 330,
+        knowledge: 290,
         context: "1M",
         desc: "Well-balanced overall baseline."
     },
     {
-        rank: 13,
+        rank: 14,
         name: "Sonnet 4.6",
         logic: 350,
         prose: 320,
         flexibility: 300,
+        knowledge: 320,
         context: "200k (1M API)",
         desc: "Good general benchmark baseline, stiffer narrative prose."
     },
     {
-        rank: 14,
+        rank: 15,
         name: "Qwen 3.8 Max",
         logic: 200,
         prose: 350,
         flexibility: 150,
+        knowledge: 250,
         context: "1M",
         desc: "Capable prose styling, constrained flexibility."
     },
     {
-        rank: 15,
+        rank: 16,
         name: "ChatGPT 5.6 Sol Max",
         logic: 50,
         prose: 250,
         flexibility: 100,
+        knowledge: 200,
         context: "256k (1M API)",
         desc: "Baseline retrieval champion, but high creative hallucination severity rate."
     }
@@ -141,7 +166,8 @@ const modelsData = [
 const BASES = {
     logic: 50,
     prose: 250,
-    flexibility: 100
+    flexibility: 100,
+    knowledge: 200
 };
 
 // Brand Icon and Logo mapping helper
@@ -278,6 +304,7 @@ function renderLeaderboard() {
         if (currentFilter === 'top-logic') return model.logic >= 400;
         if (currentFilter === 'top-prose') return model.prose >= 400;
         if (currentFilter === 'top-flex') return model.flexibility >= 400;
+        if (currentFilter === 'top-knowledge') return model.knowledge >= 400;
 
         return true;
     });
@@ -288,6 +315,7 @@ function renderLeaderboard() {
         if (currentSort === 'logic') return b.logic - a.logic;
         if (currentSort === 'prose') return b.prose - a.prose;
         if (currentSort === 'flexibility') return b.flexibility - a.flexibility;
+        if (currentSort === 'knowledge') return b.knowledge - a.knowledge;
         return 0;
     });
 
@@ -353,6 +381,10 @@ function renderLeaderboard() {
                         <span class="metric-val">${model.flexibility}</span>
                         <span class="metric-label">Flex</span>
                     </div>
+                    <div class="metric" title="Knowledge Score: ${model.knowledge}">
+                        <span class="metric-val" style="color: #34d399;">${model.knowledge}</span>
+                        <span class="metric-label">Know</span>
+                    </div>
                 </div>
             `;
 
@@ -371,13 +403,15 @@ function renderComparativeCharts() {
     const logicContainer = document.getElementById('logic-chart-container');
     const proseContainer = document.getElementById('prose-chart-container');
     const flexContainer = document.getElementById('flex-chart-container');
+    const knowledgeContainer = document.getElementById('knowledge-chart-container');
 
     if (!logicContainer || !proseContainer || !flexContainer) return;
 
     // Highest points in dataset for proper scaling
-    const maxLogic = Math.max(...modelsData.map(m => m.logic)); // 510
-    const maxProse = Math.max(...modelsData.map(m => m.prose)); // 470
-    const maxFlex = Math.max(...modelsData.map(m => m.flexibility)); // 480
+    const maxLogic = Math.max(...modelsData.map(m => m.logic));
+    const maxProse = Math.max(...modelsData.map(m => m.prose));
+    const maxFlex = Math.max(...modelsData.map(m => m.flexibility));
+    const maxKnowledge = Math.max(...modelsData.map(m => m.knowledge));
 
     // 1. Logic Chart
     const sortedByLogic = [...modelsData].sort((a, b) => b.logic - a.logic);
@@ -390,6 +424,12 @@ function renderComparativeCharts() {
     // 3. Flexibility Chart
     const sortedByFlex = [...modelsData].sort((a, b) => b.flexibility - a.flexibility);
     flexContainer.innerHTML = buildChartHTML(sortedByFlex, 'flexibility', maxFlex, '#06b6d4', 'linear-gradient(180deg, #38bdf8, #0284c7)');
+
+    // 4. Knowledge Chart
+    if (knowledgeContainer) {
+        const sortedByKnowledge = [...modelsData].sort((a, b) => b.knowledge - a.knowledge);
+        knowledgeContainer.innerHTML = buildChartHTML(sortedByKnowledge, 'knowledge', maxKnowledge, '#10b981', 'linear-gradient(180deg, #34d399, #059669)');
+    }
 
     // Attach click listeners on columns to open model popup
     document.querySelectorAll('.bar-column').forEach(col => {
@@ -459,7 +499,7 @@ function initMatchupDropdowns() {
         matchupSelectB.appendChild(optB);
     });
 
-    // Default Selection: Gemini 3.1 Pro (#1) vs Kimi k3 (#2)
+    // Default Selection: Gemini 3.1 Pro (#1) vs Gemini 3.7 Flash (#2)
     matchupSelectA.value = "1";
     matchupSelectB.value = "2";
 
@@ -522,6 +562,7 @@ function renderMatchupComparison() {
     const logicDiff = modelA.logic - modelB.logic;
     const proseDiff = modelA.prose - modelB.prose;
     const flexDiff = modelA.flexibility - modelB.flexibility;
+    const knowledgeDiff = modelA.knowledge - modelB.knowledge;
 
     const brandA = getBrandLogoInfo(modelA.name);
     const brandB = getBrandLogoInfo(modelB.name);
@@ -538,10 +579,12 @@ function renderMatchupComparison() {
     const maxLogic = Math.max(500, ...modelsData.map(m => m.logic));
     const maxProse = Math.max(500, ...modelsData.map(m => m.prose));
     const maxFlex = Math.max(500, ...modelsData.map(m => m.flexibility));
+    const maxKnowledge = Math.max(500, ...modelsData.map(m => m.knowledge));
 
     const deltaLogicHTML = formatDeltaBox('Logic Delta', logicDiff, modelA.name, modelB.name);
     const deltaProseHTML = formatDeltaBox('Prose Delta', proseDiff, modelA.name, modelB.name);
     const deltaFlexHTML = formatDeltaBox('Flexibility Delta', flexDiff, modelA.name, modelB.name);
+    const deltaKnowledgeHTML = formatDeltaBox('Knowledge Delta', knowledgeDiff, modelA.name, modelB.name);
 
     // Qualitative Takeaway
     let takeawayText = "";
@@ -559,6 +602,9 @@ function renderMatchupComparison() {
 
         if (modelA.flexibility > modelB.flexibility) advantagesA.push(`Broader thematic versatility (+${flexDiff} pts)`);
         else if (modelB.flexibility > modelA.flexibility) advantagesB.push(`Broader thematic versatility (+${Math.abs(flexDiff)} pts)`);
+
+        if (modelA.knowledge > modelB.knowledge) advantagesA.push(`Deeper canon knowledge (+${knowledgeDiff} pts)`);
+        else if (modelB.knowledge > modelA.knowledge) advantagesB.push(`Deeper canon knowledge (+${Math.abs(knowledgeDiff)} pts)`);
 
         takeawayText = `<strong>${modelA.name}</strong> (${advantagesA.length > 0 ? advantagesA.join(', ') : 'No primary score edge'}) vs <strong>${modelB.name}</strong> (${advantagesB.length > 0 ? advantagesB.join(', ') : 'No primary score edge'}).`;
     }
@@ -604,6 +650,15 @@ function renderMatchupComparison() {
                             <div class="matchup-meter-fill" style="width: ${(modelA.flexibility / maxFlex) * 100}%; background: linear-gradient(90deg, #38bdf8, #0284c7);"></div>
                         </div>
                     </div>
+                    <div class="matchup-metric-item">
+                        <div class="matchup-metric-labels">
+                            <span class="matchup-metric-name">Knowledge & Canon Recall</span>
+                            <span class="matchup-metric-score" style="color: #34d399;">${modelA.knowledge} pts</span>
+                        </div>
+                        <div class="matchup-meter">
+                            <div class="matchup-meter-fill" style="width: ${(modelA.knowledge / maxKnowledge) * 100}%; background: linear-gradient(90deg, #34d399, #059669);"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -646,6 +701,15 @@ function renderMatchupComparison() {
                             <div class="matchup-meter-fill" style="width: ${(modelB.flexibility / maxFlex) * 100}%; background: linear-gradient(90deg, #38bdf8, #0284c7);"></div>
                         </div>
                     </div>
+                    <div class="matchup-metric-item">
+                        <div class="matchup-metric-labels">
+                            <span class="matchup-metric-name">Knowledge & Canon Recall</span>
+                            <span class="matchup-metric-score" style="color: #34d399;">${modelB.knowledge} pts</span>
+                        </div>
+                        <div class="matchup-meter">
+                            <div class="matchup-meter-fill" style="width: ${(modelB.knowledge / maxKnowledge) * 100}%; background: linear-gradient(90deg, #34d399, #059669);"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -655,6 +719,7 @@ function renderMatchupComparison() {
             ${deltaLogicHTML}
             ${deltaProseHTML}
             ${deltaFlexHTML}
+            ${deltaKnowledgeHTML}
         </div>
 
         <!-- Qualitative Verdict Box -->
@@ -699,6 +764,7 @@ function openModelModal(model) {
     const logicMult = (model.logic / BASES.logic).toFixed(1);
     const proseMult = (model.prose / BASES.prose).toFixed(1);
     const flexMult = (model.flexibility / BASES.flexibility).toFixed(1);
+    const knowledgeMult = (model.knowledge / BASES.knowledge).toFixed(1);
 
     // Dynamic Quirk Callout
     let quirkCallout = '';
@@ -735,6 +801,7 @@ function openModelModal(model) {
     const maxLogic = Math.max(500, ...modelsData.map(m => m.logic));
     const maxProse = Math.max(500, ...modelsData.map(m => m.prose));
     const maxFlex = Math.max(500, ...modelsData.map(m => m.flexibility));
+    const maxKnowledge = Math.max(500, ...modelsData.map(m => m.knowledge));
 
     modalContent.innerHTML = `
         <div class="modal-header-section">
@@ -765,6 +832,11 @@ function openModelModal(model) {
                 <div class="modal-score-num">${model.flexibility}</div>
                 <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.flexibility / maxFlex) * 100}%;"></div></div>
                 <div class="modal-score-label">Flex (${flexMult}x Sol)</div>
+            </div>
+            <div class="modal-score-box">
+                <div class="modal-score-num" style="color: #34d399;">${model.knowledge}</div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.knowledge / maxKnowledge) * 100}%; background: linear-gradient(90deg, #34d399, #059669);"></div></div>
+                <div class="modal-score-label">Knowledge (${knowledgeMult}x Sol)</div>
             </div>
         </div>
 
@@ -917,12 +989,12 @@ if (exportMarkdownBtn) {
         let md = `# LLM Creative Writing Benchmark Beta V3\n\n`;
         md += `> **Important Note**: I actually haven't tested or am testing models FOR v3. So that's why you won't see it.\n\n`;
         md += `> **Scale**: 600 Tests | 12 Genres | 150 Unique Samples\n`;
-        md += `> **Sol Baseline**: 50 Logic / 250 Prose / 100 Flex (Uncapped Scale)\n\n`;
-        md += `| Rank | Model Name | Logic | Prose | Flexibility | Context Window | Evaluator Notes |\n`;
-        md += `|:---:|:---|:---:|:---:|:---:|:---:|:---|\n`;
+        md += `> **Sol Baseline**: 50 Logic / 250 Prose / 100 Flex / 200 Knowledge (Uncapped Scale)\n\n`;
+        md += `| Rank | Model Name | Logic | Prose | Flexibility | Knowledge | Context Window | Evaluator Notes |\n`;
+        md += `|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|\n`;
 
         modelsData.forEach(m => {
-            md += `| #${m.rank} | **${m.name}** | ${m.logic} | ${m.prose} | ${m.flexibility} | ${m.context} | ${m.desc} |\n`;
+            md += `| #${m.rank} | **${m.name}** | ${m.logic} | ${m.prose} | ${m.flexibility} | ${m.knowledge} | ${m.context} | ${m.desc} |\n`;
         });
 
         try {

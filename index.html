@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=betav3">
+    <link rel="stylesheet" href="style.css?v=knowv4">
     <style>
         body {
             zoom: 0.8;
@@ -71,7 +71,7 @@
                 </div>
                 <div class="description">
                     <p>The testing methodology is massive, as demonstrated by the sample size, designed to rigorously evaluate <strong>character adherence</strong> (personality, ideals, voice, and internal consistency), <strong>abstract creativity</strong>, <strong>short and long-horizon logic</strong>, and the sheer quality of the <strong>prose</strong>. Going far beyond surface-level generation, it explicitly tests for <strong>emotional intelligence (EQ) and subtext</strong> (show, don't tell), <strong>narrative pacing</strong>, <strong>spatial and temporal awareness</strong> within scenes, and the ability to juggle <strong>complex multi-character dynamics</strong> without reducing them to a hivemind.</p>
-                    <p>Furthermore, it scrutinizes <strong>consistent world-building</strong> (ensuring absolutely zero continuity errors), <strong>strict adherence to negative constraints</strong>, <strong>resistance to sycophancy</strong>, and how well a model extrapolates complex scenarios while remaining logically grounded—heavily penalizing <strong>clichés, repetitive formatting, and forced, moralizing resolutions</strong>.</p>
+                    <p>Furthermore, it scrutinizes <strong>consistent world-building & canon knowledge recall</strong> (ensuring accurate IP lore, character backstory persistence, and zero continuity errors), <strong>strict adherence to negative constraints</strong>, <strong>resistance to sycophancy</strong>, and how well a model extrapolates complex scenarios while remaining logically grounded—heavily penalizing <strong>clichés, repetitive formatting, and forced, moralizing resolutions</strong>.</p>
                     <p>Evaluations encompass 150 unique scenarios across 3 primary genres (50 each, 150 tests), alongside 3 iterations across 50 scenarios spanning the remaining 9 genres (450 tests), establishing a total of <strong>600 evaluation runs</strong> across the benchmark. All models are evaluated using a strict, standardized <strong>System Instruction Harness</strong> at default temperature settings.</p>
                 </div>
 
@@ -148,6 +148,20 @@
                         <!-- Injected by JavaScript -->
                     </div>
                 </div>
+
+                <!-- Knowledge Chart Card -->
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <div class="chart-title-line">
+                            <span class="chart-color-box knowledge-color"></span>
+                            <h3>Knowledge & Canon Recall</h3>
+                        </div>
+                        <p class="chart-subtitle">Evaluated points · Higher is better · Sol Base: 200</p>
+                    </div>
+                    <div class="chart-canvas-container" id="knowledge-chart-container">
+                        <!-- Injected by JavaScript -->
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -203,7 +217,7 @@
             <div class="section-header">
                 <div class="header-left">
                     <h2>Model Leaderboard</h2>
-                    <span class="model-count-badge" id="model-count-badge">15 Models Evaluated</span>
+                    <span class="model-count-badge" id="model-count-badge">16 Models Evaluated</span>
                 </div>
                 <div class="header-right">
                     <div class="leaderboard-action-buttons">
@@ -233,6 +247,7 @@
                         <button class="sort-btn" data-sort="logic">Logic Score</button>
                         <button class="sort-btn" data-sort="prose">Prose Score</button>
                         <button class="sort-btn" data-sort="flexibility">Flexibility Score</button>
+                        <button class="sort-btn" data-sort="knowledge">Knowledge Score</button>
                     </div>
                 </div>
                 <div class="filter-controls">
@@ -242,6 +257,7 @@
                         <button class="filter-pill" data-filter="top-logic">Logic ≥ 400</button>
                         <button class="filter-pill" data-filter="top-prose">Prose ≥ 400</button>
                         <button class="filter-pill" data-filter="top-flex">Flexibility ≥ 400</button>
+                        <button class="filter-pill" data-filter="top-knowledge">Knowledge ≥ 400</button>
                     </div>
                 </div>
             </div>
@@ -412,6 +428,6 @@
         </div>
     </footer>
 
-    <script src="app.js?v=glm53v1"></script>
+    <script src="app.js?v=knowv4"></script>
 </body>
 </html>
