@@ -753,7 +753,7 @@ function formatDeltaBox(title, diff, nameA, nameB) {
     `;
 }
 
-// Open Model Modal
+// Open Modal with Detailed Model Evaluation
 function openModelModal(model) {
     const brand = getBrandLogoInfo(model.name);
     const logoHTML = brand.img 
@@ -1091,10 +1091,42 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Chart Dimension Tab Switcher
+function initChartDimensionTabs() {
+    const tabBtns = document.querySelectorAll('.chart-tab-btn');
+    const cards = {
+        logic: document.getElementById('card-chart-logic'),
+        prose: document.getElementById('card-chart-prose'),
+        flex: document.getElementById('card-chart-flex'),
+        knowledge: document.getElementById('card-chart-knowledge')
+    };
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const targetChart = btn.getAttribute('data-chart');
+            if (targetChart === 'all') {
+                Object.values(cards).forEach(card => {
+                    if (card) card.style.display = 'flex';
+                });
+            } else {
+                Object.entries(cards).forEach(([key, card]) => {
+                    if (card) {
+                        card.style.display = (key === targetChart) ? 'flex' : 'none';
+                    }
+                });
+            }
+        });
+    });
+}
+
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
     animateStats();
     renderComparativeCharts();
+    initChartDimensionTabs();
     initMatchupDropdowns();
     renderLeaderboard();
 });
