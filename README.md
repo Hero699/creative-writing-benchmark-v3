@@ -2,7 +2,7 @@
 
 > **Important Note**: I actually haven't tested or am testing models FOR v3. So that's why you won't see it.
 
-Comprehensive creative writing evaluation across 14 frontier and open-weights LLMs tested on 600 narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
+Comprehensive creative writing evaluation across 15 frontier and open-weights LLMs tested on 600 narrative scenarios, deep constraint adherence tests, and qualitative genre evaluations.
 
 Live Public Site: [https://hero699.github.io/creative-writing-benchmark-v3/](https://hero699.github.io/creative-writing-benchmark-v3/)
 
@@ -25,18 +25,19 @@ Live Public Site: [https://hero699.github.io/creative-writing-benchmark-v3/](htt
 |:---:|:---|:---:|:---:|:---:|:---:|:---|
 | #1 | **Gemini 3.1 Pro** | 405 | 470 | 480 | 1M | Absolute best at prose and content flexibility. Resists earned character development, slight instruction-following drift. |
 | #2 | **Kimi k3** | 500 | 400 | 400 | 256k (1M API) | Number one in logic, decent at prose. Heavy CoT reasoning tax. |
-| #3 | **Opus 4.8** | 480 | 380 | 350 | 200k (1M API) | Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic. |
-| #4 | **Opus 4.6** | 460 | 400 | 350 | 200k (1M API) | Decent logic, slightly better than 4.8 in prose. |
-| #5 | **Gemini 3 Flash** | 320 | 420 | 450 | 1M | Very flexible. Amazing lightweight model. |
-| #6 | **DeepSeek v4** | 150 | 400 | 480 | 1M | Great flexibility, lower logic consistency. |
-| #7 | **Opus 5** | 400 | 300 | 200 | 200k (1M API) | Highly capable logic, but very limited flexibility and dry prose. |
-| #8 | **GLM 5.2** | 380 | 300 | 250 | 200k | Sits below Opus 4.6/5 in logic, stiffer prose. |
-| #9 | **Gemini 3.5 Flash** | 380 | 350 | 350 | 1M | Solid step up in logic from 3 Flash. |
-| #10 | **Gemini 3.6 Flash** | 300 | 320 | 370 | 1M-2M | Excellent long-context needle retrieval. |
-| #11 | **Muse Spark 1.1** | 360 | 300 | 330 | 1M | Well-balanced overall baseline. |
-| #12 | **Sonnet 4.6** | 350 | 320 | 300 | 200k (1M API) | Good general benchmark baseline, stiffer narrative prose. |
-| #13 | **Qwen 3.8 Max** | 200 | 350 | 150 | 1M | Capable prose styling, constrained flexibility. |
-| #14 | **ChatGPT 5.6 Sol Max** | 50 | 250 | 100 | 256k (1M API) | Baseline retrieval champion, but high creative hallucination severity rate. |
+| #3 | **GLM 5.3** | 510 | 360 | 420 | 200k (1M API) | Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility. |
+| #4 | **Opus 4.8** | 480 | 380 | 350 | 200k (1M API) | Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic. |
+| #5 | **Opus 4.6** | 460 | 400 | 350 | 200k (1M API) | Decent logic, slightly better than 4.8 in prose. |
+| #6 | **Gemini 3 Flash** | 320 | 420 | 450 | 1M | Very flexible. Amazing lightweight model. |
+| #7 | **DeepSeek v4** | 150 | 400 | 480 | 1M | Great flexibility, lower logic consistency. |
+| #8 | **Opus 5** | 400 | 300 | 200 | 200k (1M API) | Highly capable logic, but very limited flexibility and dry prose. |
+| #9 | **GLM 5.2** | 380 | 300 | 250 | 200k | Sits below Opus 4.6/5 in logic, stiffer prose. |
+| #10 | **Gemini 3.5 Flash** | 380 | 350 | 350 | 1M | Solid step up in logic from 3 Flash. |
+| #11 | **Gemini 3.6 Flash** | 300 | 320 | 370 | 1M-2M | Excellent long-context needle retrieval. |
+| #12 | **Muse Spark 1.1** | 360 | 300 | 330 | 1M | Well-balanced overall baseline. |
+| #13 | **Sonnet 4.6** | 350 | 320 | 300 | 200k (1M API) | Good general benchmark baseline, stiffer narrative prose. |
+| #14 | **Qwen 3.8 Max** | 200 | 350 | 150 | 1M | Capable prose styling, constrained flexibility. |
+| #15 | **ChatGPT 5.6 Sol Max** | 50 | 250 | 100 | 256k (1M API) | Baseline retrieval champion, but high creative hallucination severity rate. |
 
 ---
 
@@ -58,4 +59,6 @@ Any advice is welcome! I would love to hear feedback and ideas on:
 - Any bugs, rendering issues, or visual inconsistencies you encounter on the website.
 - Any tips or feature recommendations to improve the website presentation, interactivity, or tooling.
 
-Feel free to open an issue or submit feedback directly via the [GitHub Issues](https://github.com/Hero699/creative-writing-benchmark-v3/issues) tab.
+---
+
+Made by: Hussninyio262.

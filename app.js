@@ -20,6 +20,15 @@ const modelsData = [
     },
     {
         rank: 3,
+        name: "GLM 5.3",
+        logic: 510,
+        prose: 360,
+        flexibility: 420,
+        context: "200k (1M API)",
+        desc: "Better in logic than Kimi by a little, worse at prose than Kimi (meh), and solid flexibility."
+    },
+    {
+        rank: 4,
         name: "Opus 4.8",
         logic: 480,
         prose: 380,
@@ -28,7 +37,7 @@ const modelsData = [
         desc: "Superior logic compared to Opus 4.6 and Opus 5. The logic king of Anthropic."
     },
     {
-        rank: 4,
+        rank: 5,
         name: "Opus 4.6",
         logic: 460,
         prose: 400,
@@ -37,7 +46,7 @@ const modelsData = [
         desc: "Decent logic, slightly better than 4.8 in prose."
     },
     {
-        rank: 5,
+        rank: 6,
         name: "Gemini 3 Flash",
         logic: 320,
         prose: 420,
@@ -46,7 +55,7 @@ const modelsData = [
         desc: "Very flexible. Amazing lightweight model."
     },
     {
-        rank: 6,
+        rank: 7,
         name: "DeepSeek v4",
         logic: 150,
         prose: 400,
@@ -55,7 +64,7 @@ const modelsData = [
         desc: "Great flexibility, lower logic consistency."
     },
     {
-        rank: 7,
+        rank: 8,
         name: "Opus 5",
         logic: 400,
         prose: 300,
@@ -64,7 +73,7 @@ const modelsData = [
         desc: "Highly capable logic, but very limited flexibility and dry prose."
     },
     {
-        rank: 8,
+        rank: 9,
         name: "GLM 5.2",
         logic: 380,
         prose: 300,
@@ -73,7 +82,7 @@ const modelsData = [
         desc: "Sits below Opus 4.6/5 in logic, stiffer prose."
     },
     {
-        rank: 9,
+        rank: 10,
         name: "Gemini 3.5 Flash",
         logic: 380,
         prose: 350,
@@ -82,7 +91,7 @@ const modelsData = [
         desc: "Solid step up in logic from 3 Flash."
     },
     {
-        rank: 10,
+        rank: 11,
         name: "Gemini 3.6 Flash",
         logic: 300,
         prose: 320,
@@ -91,7 +100,7 @@ const modelsData = [
         desc: "Excellent long-context needle retrieval."
     },
     {
-        rank: 11,
+        rank: 12,
         name: "Muse Spark 1.1",
         logic: 360,
         prose: 300,
@@ -100,7 +109,7 @@ const modelsData = [
         desc: "Well-balanced overall baseline."
     },
     {
-        rank: 12,
+        rank: 13,
         name: "Sonnet 4.6",
         logic: 350,
         prose: 320,
@@ -109,7 +118,7 @@ const modelsData = [
         desc: "Good general benchmark baseline, stiffer narrative prose."
     },
     {
-        rank: 13,
+        rank: 14,
         name: "Qwen 3.8 Max",
         logic: 200,
         prose: 350,
@@ -118,7 +127,7 @@ const modelsData = [
         desc: "Capable prose styling, constrained flexibility."
     },
     {
-        rank: 14,
+        rank: 15,
         name: "ChatGPT 5.6 Sol Max",
         logic: 50,
         prose: 250,
@@ -366,7 +375,7 @@ function renderComparativeCharts() {
     if (!logicContainer || !proseContainer || !flexContainer) return;
 
     // Highest points in dataset for proper scaling
-    const maxLogic = Math.max(...modelsData.map(m => m.logic)); // 500
+    const maxLogic = Math.max(...modelsData.map(m => m.logic)); // 510
     const maxProse = Math.max(...modelsData.map(m => m.prose)); // 470
     const maxFlex = Math.max(...modelsData.map(m => m.flexibility)); // 480
 
@@ -526,9 +535,9 @@ function renderMatchupComparison() {
         : `<div class="card-brand-logo" style="background: ${brandB.bg};"><span class="brand-logo-letter">${brandB.letter}</span></div>`;
 
     // Maximums for meter fills
-    const maxLogic = 500;
-    const maxProse = 500;
-    const maxFlex = 500;
+    const maxLogic = Math.max(500, ...modelsData.map(m => m.logic));
+    const maxProse = Math.max(500, ...modelsData.map(m => m.prose));
+    const maxFlex = Math.max(500, ...modelsData.map(m => m.flexibility));
 
     const deltaLogicHTML = formatDeltaBox('Logic Delta', logicDiff, modelA.name, modelB.name);
     const deltaProseHTML = formatDeltaBox('Prose Delta', proseDiff, modelA.name, modelB.name);
@@ -679,7 +688,7 @@ function formatDeltaBox(title, diff, nameA, nameB) {
     `;
 }
 
-// Open Modal with Detailed Model Evaluation
+// Open Model Modal
 function openModelModal(model) {
     const brand = getBrandLogoInfo(model.name);
     const logoHTML = brand.img 
@@ -723,6 +732,10 @@ function openModelModal(model) {
         `;
     }
 
+    const maxLogic = Math.max(500, ...modelsData.map(m => m.logic));
+    const maxProse = Math.max(500, ...modelsData.map(m => m.prose));
+    const maxFlex = Math.max(500, ...modelsData.map(m => m.flexibility));
+
     modalContent.innerHTML = `
         <div class="modal-header-section">
             <div class="modal-rank-badge">#${model.rank}</div>
@@ -740,17 +753,17 @@ function openModelModal(model) {
         <div class="modal-score-grid">
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.logic}</div>
-                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.logic / 500) * 100}%;"></div></div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.logic / maxLogic) * 100}%;"></div></div>
                 <div class="modal-score-label">Logic (${logicMult}x Sol)</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.prose}</div>
-                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.prose / 500) * 100}%;"></div></div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.prose / maxProse) * 100}%;"></div></div>
                 <div class="modal-score-label">Prose (${proseMult}x Sol)</div>
             </div>
             <div class="modal-score-box">
                 <div class="modal-score-num">${model.flexibility}</div>
-                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.flexibility / 500) * 100}%;"></div></div>
+                <div class="modal-vector-track"><div class="modal-vector-bar" style="width: ${(model.flexibility / maxFlex) * 100}%;"></div></div>
                 <div class="modal-score-label">Flex (${flexMult}x Sol)</div>
             </div>
         </div>
