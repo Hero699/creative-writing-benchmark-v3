@@ -431,53 +431,48 @@ function renderComparativeCharts() {
         knowledgeContainer.innerHTML = buildChartHTML(sortedByKnowledge, 'knowledge', maxKnowledge, '#10b981', 'linear-gradient(180deg, #34d399, #059669)');
     }
 
-    // Attach click listeners on columns to open model popup
-    document.querySelectorAll('.bar-column').forEach(col => {
-        col.addEventListener('click', () => {
-            const rank = parseInt(col.getAttribute('data-rank'));
+    // Attach click listeners on rows to open model popup
+    document.querySelectorAll('.h-bar-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const rank = parseInt(row.getAttribute('data-rank'));
             const model = modelsData.find(m => m.rank === rank);
             if (model) openModelModal(model);
         });
     });
 }
 
-// Helper to construct Side-by-Side Column Bar Chart
+// Helper to construct Side-by-Side Horizontal Bar Chart (Clean, No-Rotated Text)
 function buildChartHTML(dataList, metricKey, maxValue, themeColor, gradientBg) {
     const baseValue = BASES[metricKey];
 
-    return dataList.map(model => {
-        const val = model[metricKey];
-        // Calculate height percentage relative to highest score (min 12% so bar is visible)
-        const heightPct = Math.max(14, Math.round((val / maxValue) * 88));
-        const multiplier = (val / baseValue).toFixed(1);
-        const brand = getBrandLogoInfo(model.name);
+    return `
+        <div class="horizontal-bars-list">
+            ${dataList.map((model, idx) => {
+                const val = model[metricKey];
+                const widthPct = Math.max(12, Math.round((val / maxValue) * 100));
+                const multiplier = (val / baseValue).toFixed(1);
+                const brand = getBrandLogoInfo(model.name);
 
-        const iconHTML = brand.img
-            ? `<img src="${brand.img}" alt="${model.name}" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'">`
-            : `<span class="brand-logo-letter">${brand.letter}</span>`;
+                const iconHTML = brand.img
+                    ? `<img src="${brand.img}" alt="${model.name}" class="brand-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='${brand.letter}'">`
+                    : `<span class="brand-logo-letter">${brand.letter}</span>`;
 
-        return `
-            <div class="bar-column" data-rank="${model.rank}" title="${model.name}: ${val} pts">
-                <!-- Hover Tooltip -->
-                <div class="bar-tooltip">
-                    <div class="bar-tooltip-title">${model.name}</div>
-                    <div class="bar-tooltip-score" style="color: ${themeColor};">${val} pts (${multiplier}x Sol)</div>
-                    <div class="bar-tooltip-meta">Rank #${model.rank} • ${model.context}</div>
-                </div>
-
-                <!-- Pillar Bar with Score & Brand Logo -->
-                <div class="bar-pillar" style="height: ${heightPct}%; background: ${gradientBg};">
-                    <span class="bar-val">${val}</span>
-                    <div class="bar-brand-icon" style="background: ${brand.bg};">
-                        ${iconHTML}
+                return `
+                    <div class="h-bar-row" data-rank="${model.rank}" title="${model.name}: ${val} pts">
+                        <span class="h-bar-rank">#${idx + 1}</span>
+                        <div class="h-bar-brand-icon" style="background: ${brand.bg};">
+                            ${iconHTML}
+                        </div>
+                        <span class="h-bar-name" title="${model.name}">${model.name}</span>
+                        <div class="h-bar-track">
+                            <div class="h-bar-fill" style="width: ${widthPct}%; background: ${gradientBg};"></div>
+                        </div>
+                        <span class="h-bar-val" style="color: ${themeColor};">${val}</span>
                     </div>
-                </div>
-
-                <!-- Parallel Angled Label (Artificial Analysis Exact Style) -->
-                <span class="bar-label-rotated">${model.name}</span>
-            </div>
-        `;
-    }).join('');
+                `;
+            }).join('')}
+        </div>
+    `;
 }
 
 // Populate Matchup Select Dropdowns
@@ -499,7 +494,7 @@ function initMatchupDropdowns() {
         matchupSelectB.appendChild(optB);
     });
 
-    // Default Selection: Gemini 3.1 Pro (#1) vs Gemini 3.7 Flash (#2)
+    // Default Selection: Gemini 3.1 Pro (#1) vs Kimi k3 (#2)
     matchupSelectA.value = "1";
     matchupSelectB.value = "2";
 
